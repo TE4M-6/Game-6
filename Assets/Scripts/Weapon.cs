@@ -54,7 +54,6 @@ public class Weapon : MonoBehaviour {
     public void Shoot() {
         // Shoot if the time of the latest shot has passed the fire rate
         if (Time.time > nextFire) {
-            Debug.Log("shot");
 
             if (_isBurstEnabled) {
                 // Basic rate of fire + how long does it take to finish the burst (-1 because the first shot is instant)
