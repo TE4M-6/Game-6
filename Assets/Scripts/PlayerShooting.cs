@@ -44,6 +44,8 @@ public class PlayerShooting : MonoBehaviour {
 
     /* FUNCTIONS */
     void PerformShoot(InputAction.CallbackContext context) {
+        isShooting = false;
+
         // Check that the player has a weapon child
         if (_equippedWeapon == null) {
             Debug.Log("Player equipped weapon is null ", gameObject);
