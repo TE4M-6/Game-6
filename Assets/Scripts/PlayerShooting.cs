@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 /// <summary>
 /// AUTHOR: @Nuutti J.
-/// Last modified: 1 Dec. 2022 by @Nuutti J.
+/// Last modified: 7 Dec. 2022 by @Nuutti J.
 /// </summary>
 
 public class PlayerShooting : MonoBehaviour {
@@ -37,7 +37,7 @@ public class PlayerShooting : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         // If the shoot button is pressed or held down
-        if(isShooting) {
+        if (isShooting) {
             _equippedWeapon.Shoot();
         }
     }
@@ -45,19 +45,25 @@ public class PlayerShooting : MonoBehaviour {
     /* FUNCTIONS */
     void PerformShoot(InputAction.CallbackContext context) {
         // Check that the player has a weapon child
-        if(_equippedWeapon == null) {
+        if (_equippedWeapon == null) {
             Debug.Log("Player equipped weapon is null ", gameObject);
             return;
         }
 
-        // Clicked / held
-        if (context.performed) {
-            isShooting = true;
-        }
+        if (_equippedWeapon._allowHold) {
+            // Clicked / held
+            if (context.performed) {
+                isShooting = true;
+            }
 
-        // Released
-        if (context.canceled) {
-            isShooting = false;
+            // Released
+            if (context.canceled) {
+                isShooting = false;
+            }
+        } else {
+            if (context.performed) {
+                _equippedWeapon.Shoot();
+            }
         }
     }
 }
