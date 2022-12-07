@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// AUTHOR: @Nuutti J.
-/// Last modified: 1 Dec 2022 by @Nuutti J.
+/// Last modified: 7 Dec 2022 by @Nuutti J.
 /// </summary>
 
 public class PlayerAiming : MonoBehaviour {
