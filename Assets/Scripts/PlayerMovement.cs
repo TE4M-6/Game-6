@@ -1,11 +1,12 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 /// <summary>
 /// @Daniel K.
 /// Initial commit: 29-Nov-2022
-/// Last modified: 01 Dec 2022 by @Daniel K.
+/// Last modified: 05 Dec 2022 by @Toni N.
 /// </summary>
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("Value is used to multiple the player's velocity!")]
     [SerializeField] [Range(1, 10)] private float dashPower = 1;
     [SerializeField] [Range(1,10)] private float dashCooldown = 1;
+    [SerializeField] GameObject DashLight;
+    [SerializeField] Slider dashSlider;
     
     /* HIDDEN FIELDS */
     private Vector2 _rawInputKeys;
@@ -36,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _trailRenderer = GetComponent<TrailRenderer>();
         _animator = GetComponent<Animator>();
+        dashSlider.value = dashCooldown;
 
         // Calling Methods:
     }
@@ -44,6 +48,13 @@ public class PlayerMovement : MonoBehaviour
     {
         Move();
         FaceCursor();
+        dashSlider.value = Time.time;
+    }
+
+    public void FillDash()
+    {
+        dashSlider.minValue = Time.time;
+        dashSlider.maxValue = Time.time + dashCooldown;
     }
 
     /* FUNCTIONS */
@@ -109,9 +120,12 @@ public class PlayerMovement : MonoBehaviour
         
         _canDash = false;
         _isDashing = true;
+        DashLight.SetActive(false);
+        FillDash();
         yield return new WaitForSeconds(dashingTime);
         _isDashing = false;
         yield return new WaitForSeconds(dashCooldown);
         _canDash = true;
+        DashLight.SetActive(true);
     }
 }
