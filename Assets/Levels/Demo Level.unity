@@ -2366,6 +2366,8 @@ MonoBehaviour:
   max: 15
   spawnCooldown: 2
   aimingTool: {fileID: 1148670493}
+  aimingOffsetMin: -0.3
+  aimingOffsetMax: -0.3
   forceAmplifier: 15
 --- !u!4 &712708110
 Transform:
@@ -2375,7 +2377,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712708108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.0033, y: -41.0041, z: 1.5156891}
+  m_LocalPosition: {x: 34.0034, y: -36.0036, z: 1.5156891}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4059,7 +4061,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148670493}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0001001, y: -4.0004005, z: 0}
+  m_LocalPosition: {x: -5.000499, y: -7.000698, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4093,7 +4095,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1149133706}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.0461, y: -4.1313, z: 0}
+  m_LocalPosition: {x: -8.000799, y: -9.000898, z: 0}
   m_LocalScale: {x: 3.8681996, y: 1.2619452, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
