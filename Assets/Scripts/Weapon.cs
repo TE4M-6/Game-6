@@ -72,8 +72,8 @@ public class Weapon : MonoBehaviour {
     public void Shoot() {
         // Shoot if the time of the latest shot has passed the fire rate
         if (heatAmount < heatSlider.maxValue - shotHeatValue)
-           {
-              if (Time.time > nextFire) {              
+        {
+            if (Time.time > nextFire) {              
                     
               
 
@@ -100,8 +100,8 @@ public class Weapon : MonoBehaviour {
                 }
 
                 heatAmount += shotHeatValue;
-              }
-       }
+            }
+        }
 
     }
 
@@ -126,28 +126,30 @@ public class Weapon : MonoBehaviour {
         }
     }
 
-    IEnumerator burstShot() {
-        for (int i = 0; i < _projectilesPerShot; i++) {
+    IEnumerator burstShot()
+    {
+        for (int i = 0; i < _projectilesPerShot; i++)
+        {
             Quaternion weaponRotation = _weaponPivot.transform.rotation;
             GameObject projectile = Instantiate(_projectile.gameObject, _muzzle.position, weaponRotation);
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             rb.AddForce(_muzzle.right * _projectile._speed, ForceMode2D.Impulse);
             yield return new WaitForSeconds(_burstFireRate);
-  /*          
-        if(Time.time > nextFire) {
-            if (heatAmount < heatSlider.maxValue - shotHeatValue)
-            {
-                nextFire = Time.time + _rateOfFire;
-
-                Quaternion rotation = _weaponPivot.transform.rotation;
-                GameObject projectile = Instantiate(_projectile.gameObject, _muzzle.position, rotation);
-                Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-
-                rb.AddForce(_muzzle.right * _projectile._speed, ForceMode2D.Impulse);
-                heatAmount += shotHeatValue;
-            }
+            /*          
+                  if(Time.time > nextFire) {
+                      if (heatAmount < heatSlider.maxValue - shotHeatValue)
+                      {
+                          nextFire = Time.time + _rateOfFire;
+          
+                          Quaternion rotation = _weaponPivot.transform.rotation;
+                          GameObject projectile = Instantiate(_projectile.gameObject, _muzzle.position, rotation);
+                          Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+          
+                          rb.AddForce(_muzzle.right * _projectile._speed, ForceMode2D.Impulse);
+                          heatAmount += shotHeatValue;
+                      }
+                  }
+              */
         }
-    */
     }
-
 }
