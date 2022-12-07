@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// AUTHOR: @Nuutti J.
@@ -39,8 +40,13 @@ public class Weapon : MonoBehaviour {
     [Tooltip("The instantiation point of the projectile")]
     [SerializeField] Transform _muzzle;
 
+    [SerializeField] Slider heatSlider;
+    [Tooltip("How much heat does one shot add (out of 100)")]
+    [SerializeField] float shotHeatValue;
+
     /* HIDDEN FIELDS: */
     float nextFire;
+    float heatAmount;
 
     /* HIDDEN FIELDS: */
     Transform _weaponPivot;
@@ -50,33 +56,52 @@ public class Weapon : MonoBehaviour {
         _weaponPivot = GetComponentInParent<Transform>();
     }
 
+    private void Update()
+    {
+        heatSlider.value = heatAmount;
+
+        heatAmount -= 5 * Time.deltaTime;
+
+        if (heatAmount > heatSlider.maxValue) 
+        {
+            heatAmount = heatSlider.maxValue;
+        }
+    }
+
     /* FUNCTIONS */
     public void Shoot() {
         // Shoot if the time of the latest shot has passed the fire rate
-        if (Time.time > nextFire) {
+        if (heatAmount < heatSlider.maxValue - shotHeatValue)
+           {
+              if (Time.time > nextFire) {              
+                    
+              
 
-            if (_isBurstEnabled) {
-                // Basic rate of fire + how long does it take to finish the burst (-1 because the first shot is instant)
-                nextFire = Time.time + _rateOfFire + ((_projectilesPerShot - 1) * _burstFireRate);
-            } else {
-                nextFire = Time.time + _rateOfFire;
-            }
+                if (_isBurstEnabled) {
+                    // Basic rate of fire + how long does it take to finish the burst (-1 because the first shot is instant)
+                    nextFire = Time.time + _rateOfFire + ((_projectilesPerShot - 1) * _burstFireRate);
+                } else {
+                    nextFire = Time.time + _rateOfFire;
+                }
 
-            // Single shot behaviour
-            if (_projectilesPerShot == 1) {
-                singleShot();
-            }
+                // Single shot behaviour
+                if (_projectilesPerShot == 1) {
+                    singleShot();
+                }
 
-            // Shotgun behaviour
-            if (_projectilesPerShot > 1 && _spreadAngle > 0) {
-                shotgunShot();
-            }
+                // Shotgun behaviour
+                if (_projectilesPerShot > 1 && _spreadAngle > 0) {
+                    shotgunShot();
+                }
 
-            // Burst behaviour
-            if (_projectilesPerShot > 1 && _spreadAngle == 0 && _isBurstEnabled && _burstFireRate > 0) {
-                StartCoroutine(burstShot());
-            }
-        }
+                // Burst behaviour
+                if (_projectilesPerShot > 1 && _spreadAngle == 0 && _isBurstEnabled && _burstFireRate > 0) {
+                    StartCoroutine(burstShot());
+                }
+
+                heatAmount += shotHeatValue;
+              }
+       }
 
     }
 
@@ -108,6 +133,21 @@ public class Weapon : MonoBehaviour {
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             rb.AddForce(_muzzle.right * _projectile._speed, ForceMode2D.Impulse);
             yield return new WaitForSeconds(_burstFireRate);
+  /*          
+        if(Time.time > nextFire) {
+            if (heatAmount < heatSlider.maxValue - shotHeatValue)
+            {
+                nextFire = Time.time + _rateOfFire;
+
+                Quaternion rotation = _weaponPivot.transform.rotation;
+                GameObject projectile = Instantiate(_projectile.gameObject, _muzzle.position, rotation);
+                Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+
+                rb.AddForce(_muzzle.right * _projectile._speed, ForceMode2D.Impulse);
+                heatAmount += shotHeatValue;
+            }
         }
+    */
     }
+
 }
