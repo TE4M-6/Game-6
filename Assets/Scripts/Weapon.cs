@@ -93,11 +93,15 @@ public class Weapon : MonoBehaviour {
     public void Shoot() {
         // Shoot if the weapon isn't overheated 
         if(!isOverheated) {
+
             // Added by Toni N. - 06122022
             // Shoot if the heatAmount doesn't go over the max amount on the next shot
             if (heatAmount < heatSlider.maxValue - shotHeatIncrease) {
+
                 // Shoot if the time of the latest shot has passed the fire rate
                 if (Time.time > nextFire) {
+
+                    // Thersholds for different weapon behaviors
                     if (heatAmount >= 0 && heatAmount < 54) {
                         shotHeatIncrease = heatIncreaseRates[0];
                         heatAmount += heatIncreaseRates[0];
