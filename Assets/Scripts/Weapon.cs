@@ -12,10 +12,10 @@ public class Weapon : MonoBehaviour {
 
     /* EXPOSED FIELDS: */
     [Tooltip("Fire rates for different weapons (pistol, rifle, shotgun)")]
-    [SerializeField] List<float> fireRates = new List<float>();
+    [SerializeField] float[] fireRates;
 
     [Tooltip("Heat increase rates for different weapons (pistol, rifle, shotgun)")]
-    [SerializeField] List<float> heatIncreaseRate = new List<float>();
+    [SerializeField] float[] heatIncreaseRates;
 
     [Tooltip("Rifle projectiles")]
     [SerializeField] int rifleProjectilesAmount = 3;
@@ -27,7 +27,7 @@ public class Weapon : MonoBehaviour {
     [Range(0, 45)]
     [SerializeField] float _spreadAngle = 0f;
 
-    [Tooltip("Projectiles travel distance")]
+    [Tooltip("Projectiles max travel distance")]
     [SerializeField] float _range = 0f;
 
     [Tooltip("Is the weapon burst fire?")]
@@ -41,7 +41,7 @@ public class Weapon : MonoBehaviour {
 
     [Header("Weapon objects")]
     [Tooltip("What does the weapon shoot (pistol, rifle, shotgun)")]
-    [SerializeField] List<Projectile> projectiles = new List<Projectile>();
+    [SerializeField] Projectile[] projectiles;
 
     [Tooltip("The instantiation point of the projectile")]
     [SerializeField] Transform _muzzle;
@@ -54,6 +54,7 @@ public class Weapon : MonoBehaviour {
 
     [Tooltip("How quickly does the heat decrease (out of 100)")]
     [SerializeReference] float shotHeatDecrease;
+    // End Added by Toni N.
 
     /* HIDDEN FIELDS: */
     float nextFire;
@@ -73,7 +74,8 @@ public class Weapon : MonoBehaviour {
         heatSlider.value = heatAmount;
         heatAmount -= shotHeatDecrease * Time.deltaTime;
 
-        if (heatAmount > 99) {
+        // Added by Nuutti J. 07122022
+        if (heatAmount > 99f) {
             StartCoroutine(onCooldown());
         }
 
@@ -89,51 +91,26 @@ public class Weapon : MonoBehaviour {
 
     /* FUNCTIONS */
     public void Shoot() {
-        
-        // Added by Toni N. - 06122022
-        // Shoot if the heatAmount doesn't go over the max amount on the next shot
+        // Shoot if the weapon isn't overheated 
         if(!isOverheated) {
+            // Added by Toni N. - 06122022
+            // Shoot if the heatAmount doesn't go over the max amount on the next shot
             if (heatAmount < heatSlider.maxValue - shotHeatIncrease) {
                 // Shoot if the time of the latest shot has passed the fire rate
                 if (Time.time > nextFire) {
-
-                    /*if (heatAmount > 50) {
-                        // Basic rate of fire + how long does it take to finish the burst (-1 because the first shot is instant)
-                        nextFire = Time.time + _rateOfFire + ((rifleProjectilesAmount - 1) * _burstFireRate);
-                    } else {
-                        nextFire = Time.time + _rateOfFire;
-                    }*/
-
-                    if (heatAmount >= 0 && heatAmount < 49) {
-                        shotHeatIncrease = heatIncreaseRate[0];
-                        heatAmount += heatIncreaseRate[0];
+                    if (heatAmount >= 0 && heatAmount < 54) {
+                        shotHeatIncrease = heatIncreaseRates[0];
+                        heatAmount += heatIncreaseRates[0];
                         singleShot();
-                    } else if (heatAmount > 50 && heatAmount < 79) {
-                        shotHeatIncrease = heatIncreaseRate[1];
-                        heatAmount += heatIncreaseRate[1];
+                    } else if (heatAmount > 55 && heatAmount < 79) {
+                        shotHeatIncrease = heatIncreaseRates[1];
+                        heatAmount += heatIncreaseRates[1];
                         StartCoroutine(burstShot());
-                    } else if (heatAmount > 80 && heatAmount < 99) {
-                        shotHeatIncrease = heatIncreaseRate[2];
-                        heatAmount += heatIncreaseRate[2];
+                    } else if (heatAmount > 80) {
+                        shotHeatIncrease = heatIncreaseRates[2];
+                        heatAmount += heatIncreaseRates[2];
                         shotgunShot();
                     }
-
-                    /*
-                    // Single shot behaviour
-                    if (_projectilesPerShot == 1) {
-                        singleShot();
-                    }
-
-                    // Shotgun behaviour
-                    if (_projectilesPerShot > 1 && _spreadAngle > 0) {
-                        shotgunShot();
-                    }
-
-                    // Burst behaviour
-                    if (_projectilesPerShot > 1 && _spreadAngle == 0 && _isBurstEnabled && _burstFireRate > 0) {
-                        StartCoroutine(burstShot());
-                    }
-                    */
                 }
             }
         }
@@ -142,19 +119,18 @@ public class Weapon : MonoBehaviour {
     void singleShot() {
         nextFire = Time.time + fireRates[0];
         Quaternion weaponRotation = _weaponPivot.transform.rotation;
-
         Projectile bullet = projectiles[0];
+
         GameObject projectile = Instantiate(bullet.gameObject, _muzzle.position, weaponRotation);
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         rb.AddForce(_muzzle.right * bullet._speed, ForceMode2D.Impulse);
     }
 
-    IEnumerator burstShot()
-    {
+    IEnumerator burstShot() {
         nextFire = Time.time + fireRates[1] + ((rifleProjectilesAmount - 1) * _burstFireRate);
         Projectile bullet = projectiles[1];
-        for (int i = 0; i < rifleProjectilesAmount; i++)
-        {
+
+        for (int i = 0; i < rifleProjectilesAmount; i++) {
             Quaternion weaponRotation = _weaponPivot.transform.rotation;
             GameObject projectile = Instantiate(bullet.gameObject, _muzzle.position, weaponRotation);
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
