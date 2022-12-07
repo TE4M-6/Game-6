@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5262941702938651232}
   - component: {fileID: -3407810916125074414}
   m_Layer: 14
-  m_Name: PistolProjectile
+  m_Name: RifleProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847e5265db547e84ebec6335d5da3c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
-  _damage: 0.8
+  _speed: 12
+  _damage: 1
 --- !u!50 &5262941702938651232
 Rigidbody2D:
   serializedVersion: 4
@@ -83,7 +83,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.2280705, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -94,7 +94,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.84, y: 0.84}
+  m_Size: {x: 7.6119246, y: 0.84}
   m_EdgeRadius: 0
 --- !u!1 &2477125746532398784
 GameObject:
@@ -169,7 +169,7 @@ SpriteRenderer:
   m_SortingLayerID: 580755349
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7961c71eaeafa274a94c6f53ebd630f1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f8566f6e81ea05e47aeffee6ef09eb9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

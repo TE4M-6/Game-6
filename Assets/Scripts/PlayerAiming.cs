@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// AUTHOR: @Nuutti J.
-/// Last modified: 1 Dec 2022 by @Nuutti J.
+/// Last modified: 7 Dec 2022 by @Nuutti J.
 /// </summary>
 
 public class PlayerAiming : MonoBehaviour {
@@ -21,9 +21,6 @@ public class PlayerAiming : MonoBehaviour {
     [Tooltip("The object to hide behind")]
     [SerializeField] SpriteRenderer playerRenderer;
 
-    [Tooltip("The weapon to hide")]
-    [SerializeField] SpriteRenderer weaponRenderer;
-
     [Tooltip("The angle to start hiding")]
     [SerializeField] float hideThresholdStart = 75;
 
@@ -33,6 +30,11 @@ public class PlayerAiming : MonoBehaviour {
     /* HIDDEN FIELDS: */
     Vector3 mouseWorldPos;
     Vector2 rotateDir;
+    SpriteRenderer weaponRenderer;
+
+    void Awake() {
+        weaponRenderer = GetComponentInChildren<Weapon>().GetComponent<SpriteRenderer>();    
+    }
 
     void Update() {
         // The position of the cursor in unity coordinates
