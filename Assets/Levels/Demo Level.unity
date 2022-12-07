@@ -2363,9 +2363,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 2014527211}
-  _spawnRate: 1.2
+  max: 15
+  spawnRate: 0
   aimingTool: {fileID: 1148670493}
-  forceAmplifier: 10
+  forceAmplifier: 15
 --- !u!4 &712708110
 Transform:
   m_ObjectHideFlags: 0
