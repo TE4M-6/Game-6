@@ -101,12 +101,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRates: []
   heatIncreaseRates: []
+  heatThresholds: []
   rifleProjectilesAmount: 3
   shotgunProjectilesAmount: 5
   _spreadAngle: 0
-  _range: 0
-  _isBurstEnabled: 0
   _burstFireRate: 0
+  shotHeatDecrease: 0
+  decreaseRateIncreaseTime: 2
   _allowHold: 1
   projectiles: []
   _muzzle: {fileID: 6721106902708140275}
