@@ -55,10 +55,6 @@ public class Weapon : MonoBehaviour {
     // Added by Toni N. - 06122022
     [SerializeField] Slider heatSlider;
 
-    [Tooltip("How quickly does the heat decrease (out of 100)")]
-    [SerializeReference] float shotHeatDecrease;
-    // End Added by Toni N.
-
     // Added by Joona H. - 08122022
     [Header("Gun sounds")]
     [Tooltip("Sound clips for different projectiles and functions")]
