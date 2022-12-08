@@ -5,17 +5,21 @@ using UnityEngine.UI;
 
 /// <summary>
 /// AUTHOR: @Nuutti J.
-/// Last modified: 7 Dec. 2022 by @Nuutti J.
+/// Last modified: 8 Dec. 2022 by @Nuutti J.
 /// </summary>
 
 public class Weapon : MonoBehaviour {
-
     /* EXPOSED FIELDS: */
+    [Header("WEAPON PROPERTIES")]
+
     [Tooltip("Fire rates for different weapons (pistol, rifle, shotgun)")]
     [SerializeField] float[] fireRates;
 
     [Tooltip("Heat increase rates for different weapons (pistol, rifle, shotgun)")]
     [SerializeField] float[] heatIncreaseRates;
+
+    [Tooltip("Thresholds for when to change weapon behavior (pistol, rifle). Add .99 to values end (i.e. 49.99, 79.99). Other thresholds will be calculated based on these. Pistol = 0 - 49.99, Rifle = 50 - 79.99, Shotgun = 80 - 100")]
+    [SerializeField] float[] heatThresholds;
 
     [Tooltip("Rifle projectiles")]
     [SerializeField] int rifleProjectilesAmount = 3;
@@ -27,19 +31,17 @@ public class Weapon : MonoBehaviour {
     [Range(0, 45)]
     [SerializeField] float _spreadAngle = 0f;
 
-    [Tooltip("Projectiles max travel distance")]
-    [SerializeField] float _range = 0f;
-
-    [Tooltip("Is the weapon burst fire?")]
-    [SerializeField] bool _isBurstEnabled = false;
-
     [Tooltip("The time between each shot in burst")]
     [SerializeField] float _burstFireRate = 0f;
+
+    // Added by Toni N. - 06122022
+    [Tooltip("How quickly does the heat decrease (out of 100)")]
+    [SerializeReference] float shotHeatDecrease;
 
     [Tooltip("Click each shot or hold mouse down?")]
     public bool _allowHold = false;
 
-    [Header("Weapon objects")]
+    [Header("WEAPON OBJECTS")]
     [Tooltip("What does the weapon shoot (pistol, rifle, shotgun)")]
     [SerializeField] Projectile[] projectiles;
 
@@ -49,24 +51,27 @@ public class Weapon : MonoBehaviour {
     // Added by Toni N. - 06122022
     [SerializeField] Slider heatSlider;
 
-    [Tooltip("How much heat does one shot add (out of 100)")]
-    [SerializeField] float shotHeatIncrease;
-
-    [Tooltip("How quickly does the heat decrease (out of 100)")]
-    [SerializeReference] float shotHeatDecrease;
-    // End Added by Toni N.
-
     /* HIDDEN FIELDS: */
     float nextFire;
     float heatAmount;
+    float shotHeatIncrease;
     bool isOverheated;
+
+    float pistolThres;
+    float rifleThresLower;
+    float rifleThresUpper;
+    float shotgunThres;
 
     /* HIDDEN FIELDS: */
     Transform _weaponPivot;
 
-    // Start is called before the first frame update
-    void Start() {
+    void Awake() {
         _weaponPivot = GetComponentInParent<Transform>();
+        pistolThres = heatThresholds[0];
+        rifleThresLower = Mathf.Ceil(pistolThres);
+        rifleThresUpper = heatThresholds[1];
+        shotgunThres = Mathf.Ceil(rifleThresUpper);
+        Debug.Log(shotgunThres);
     }
 
     // Added by Toni N. - 06122022
@@ -102,15 +107,15 @@ public class Weapon : MonoBehaviour {
                 if (Time.time > nextFire) {
 
                     // Thersholds for different weapon behaviors
-                    if (heatAmount >= 0 && heatAmount < 54) {
+                    if (heatAmount >= 0f && heatAmount < pistolThres) {
                         shotHeatIncrease = heatIncreaseRates[0];
                         heatAmount += heatIncreaseRates[0];
                         singleShot();
-                    } else if (heatAmount > 55 && heatAmount < 79) {
+                    } else if (heatAmount > rifleThresLower && heatAmount < rifleThresUpper) {
                         shotHeatIncrease = heatIncreaseRates[1];
                         heatAmount += heatIncreaseRates[1];
                         StartCoroutine(burstShot());
-                    } else if (heatAmount > 80) {
+                    } else if (heatAmount > shotgunThres) {
                         shotHeatIncrease = heatIncreaseRates[2];
                         heatAmount += heatIncreaseRates[2];
                         shotgunShot();
@@ -160,9 +165,21 @@ public class Weapon : MonoBehaviour {
 
     IEnumerator onCooldown() {
         isOverheated = true;
+        float decreaseRate = shotHeatDecrease;
+
         while(heatAmount > heatSlider.minValue) {
+
+            // shotHeatDecrease is faster on rifle range and even faster on pistol range
+            if(heatAmount < rifleThresUpper && heatAmount > rifleThresLower) {
+                shotHeatDecrease = decreaseRate * 2;
+            } else if (heatAmount < rifleThresLower) {
+                shotHeatDecrease = decreaseRate * 3;
+            }
             yield return null;
         }
+
+        // Reset values
+        shotHeatDecrease = decreaseRate;
         isOverheated = false;
     }
 }
