@@ -27,6 +27,7 @@ public class DoorAnimation : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            SoundManager.instance.PlaySingle(doorOpen);
             _animator.Play("Door_Close_Animation");
         }
     }
