@@ -81,7 +81,7 @@ public class Weapon : MonoBehaviour {
         heatAmount -= shotHeatDecrease * Time.deltaTime;
 
         // Added by Nuutti J. 07122022
-        if (heatAmount > 99f) {
+        if (heatAmount > 99.99f) {
             StartCoroutine(onCooldown());
         }
 
@@ -94,11 +94,11 @@ public class Weapon : MonoBehaviour {
             heatAmount = heatSlider.maxValue;
         }
 
-        if (heatAmount >= 0 && heatAmount < 54)
+        if (heatAmount >= 0 && heatAmount < 54.99)
         {
             weaponLight.color = Color.green;
         }
-        else if (heatAmount > 55 && heatAmount < 79)
+        else if (heatAmount > 55 && heatAmount < 79.99)
         {
             weaponLight.color = Color.yellow;
         }
