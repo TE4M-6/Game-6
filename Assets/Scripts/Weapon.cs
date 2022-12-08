@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 /// <summary>
 /// AUTHOR: @Nuutti J.
+/// Last modified: 08 Dec. 2022 by @Joona H.
 /// Last modified: 8 Dec. 2022 by @Nuutti J.
 /// </summary>
 
@@ -53,6 +54,20 @@ public class Weapon : MonoBehaviour {
 
     // Added by Toni N. - 06122022
     [SerializeField] Slider heatSlider;
+
+    [Tooltip("How quickly does the heat decrease (out of 100)")]
+    [SerializeReference] float shotHeatDecrease;
+    // End Added by Toni N.
+
+    // Added by Joona H. - 08122022
+    [Header("Gun sounds")]
+    [Tooltip("Sound clips for different projectiles and functions")]
+    [SerializeField] AudioClip pistol;
+    [SerializeField] AudioClip rifle;
+    [SerializeField] AudioClip shotgun;
+    [SerializeField] AudioClip overheat;
+    [SerializeField] AudioClip gunReady;
+    //End added by Joona H.
 
     /* HIDDEN FIELDS: */
     float nextFire;
@@ -145,7 +160,7 @@ public class Weapon : MonoBehaviour {
         nextFire = Time.time + fireRates[0];
         Quaternion weaponRotation = _weaponPivot.transform.rotation;
         Projectile bullet = projectiles[0];
-
+        SoundManager.instance.PlaySingle(pistol);
         GameObject projectile = Instantiate(bullet.gameObject, _muzzle.position, weaponRotation);
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         rb.AddForce(_muzzle.right * bullet._speed, ForceMode2D.Impulse);
@@ -154,8 +169,9 @@ public class Weapon : MonoBehaviour {
     IEnumerator burstShot() {
         nextFire = Time.time + fireRates[1] + ((rifleProjectilesAmount - 1) * _burstFireRate);
         Projectile bullet = projectiles[1];
-
+        
         for (int i = 0; i < rifleProjectilesAmount; i++) {
+            SoundManager.instance.PlaySingle(rifle);
             Quaternion weaponRotation = _weaponPivot.transform.rotation;
             GameObject projectile = Instantiate(bullet.gameObject, _muzzle.position, weaponRotation);
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
@@ -168,7 +184,8 @@ public class Weapon : MonoBehaviour {
         nextFire = Time.time + fireRates[2];
         Projectile bullet = projectiles[2];
         Quaternion weaponRotation = _weaponPivot.transform.rotation;
-
+        SoundManager.instance.PlaySingle(rifle);
+        SoundManager.instance.PlaySingle(shotgun);
         // Foreach projectile calculate a random rotation max being the _spreadAngle and add force based on the projectiles new right direction
         for (int i = 0; i < shotgunProjectilesAmount; i++) {
             Quaternion randomRot = Random.rotation;
@@ -180,6 +197,7 @@ public class Weapon : MonoBehaviour {
     }
 
     IEnumerator onCooldown() {
+        SoundManager.instance.PlaySingle(overheat);
         isOverheated = true;
         float decreaseRate = shotHeatDecrease;
 
@@ -194,8 +212,11 @@ public class Weapon : MonoBehaviour {
             yield return null;
         }
 
+        SoundManager.instance.PlaySingle(gunReady);
+
         // Reset values
         shotHeatDecrease = decreaseRate;
+
         isOverheated = false;
     }
 }
