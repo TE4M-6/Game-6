@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering.Universal;
 
 /// <summary>
 /// AUTHOR: @Nuutti J.
@@ -54,6 +55,11 @@ public class Weapon : MonoBehaviour {
 
     [Tooltip("How quickly does the heat decrease (out of 100)")]
     [SerializeReference] float shotHeatDecrease;
+
+    [Tooltip("Lighting effects for different pew pew machines")]
+    [SerializeField] GameObject[] lightEffects;
+
+    [SerializeField] Light2D weaponLight;
     // End Added by Toni N.
 
     /* HIDDEN FIELDS: */
@@ -86,6 +92,19 @@ public class Weapon : MonoBehaviour {
         if (heatAmount > heatSlider.maxValue) 
         {
             heatAmount = heatSlider.maxValue;
+        }
+
+        if (heatAmount >= 0 && heatAmount < 54)
+        {
+            weaponLight.color = Color.green;
+        }
+        else if (heatAmount > 55 && heatAmount < 79)
+        {
+            weaponLight.color = Color.yellow;
+        }
+        else if (heatAmount > 80)
+        {
+            weaponLight.color = Color.red;
         }
     }
 
@@ -124,21 +143,26 @@ public class Weapon : MonoBehaviour {
         nextFire = Time.time + fireRates[0];
         Quaternion weaponRotation = _weaponPivot.transform.rotation;
         Projectile bullet = projectiles[0];
+        GameObject pistolLight = lightEffects[0];
 
         GameObject projectile = Instantiate(bullet.gameObject, _muzzle.position, weaponRotation);
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         rb.AddForce(_muzzle.right * bullet._speed, ForceMode2D.Impulse);
+        Instantiate(pistolLight, projectile.transform);
+        
     }
 
     IEnumerator burstShot() {
         nextFire = Time.time + fireRates[1] + ((rifleProjectilesAmount - 1) * _burstFireRate);
         Projectile bullet = projectiles[1];
+        GameObject rifleLight = lightEffects[1];
 
         for (int i = 0; i < rifleProjectilesAmount; i++) {
             Quaternion weaponRotation = _weaponPivot.transform.rotation;
             GameObject projectile = Instantiate(bullet.gameObject, _muzzle.position, weaponRotation);
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             rb.AddForce(_muzzle.right * bullet._speed, ForceMode2D.Impulse);
+            Instantiate(rifleLight, projectile.transform);
             yield return new WaitForSeconds(_burstFireRate);
         }
     }
@@ -147,6 +171,7 @@ public class Weapon : MonoBehaviour {
         nextFire = Time.time + fireRates[2];
         Projectile bullet = projectiles[2];
         Quaternion weaponRotation = _weaponPivot.transform.rotation;
+        GameObject shotgunLight = lightEffects[2];
 
         // Foreach projectile calculate a random rotation max being the _spreadAngle and add force based on the projectiles new right direction
         for (int i = 0; i < shotgunProjectilesAmount; i++) {
@@ -155,6 +180,7 @@ public class Weapon : MonoBehaviour {
             projectile.transform.rotation = Quaternion.RotateTowards(projectile.transform.rotation, randomRot, _spreadAngle);
             Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
             projectileRb.AddForce(projectile.transform.right * bullet._speed, ForceMode2D.Impulse);
+            Instantiate(shotgunLight, projectile.transform);
         }
     }
 
