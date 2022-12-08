@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7094796018789649894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.000499, y: -7.000698, z: 0}
+  m_LocalPosition: {x: 12.001203, y: -1.0000992, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58,8 +58,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7094796018790251633}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.000799, y: -9.000898, z: 0}
-  m_LocalScale: {x: 3.8681996, y: 1.2619452, z: 1}
+  m_LocalPosition: {x: 18.0018, y: -2.0002034, z: 0}
+  m_LocalScale: {x: 5.2437315, y: 4.196725, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7094796019427987445}
@@ -179,7 +179,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7094796019406217751}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 39.003902, y: -35.0035, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
@@ -203,12 +203,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 4221837384052487952}
-  max: 20
-  spawnCooldown: 0
+  max: 7
+  spawnCooldown: 0.2
   aimingTool: {fileID: 7094796018789649894}
-  aimingOffsetMin: -0.3
-  aimingOffsetMax: -0.3
-  forceAmplifier: 2
+  aimingOffsetMin: -0.5
+  aimingOffsetMax: 0.5
+  forceAmplifier: 40
 --- !u!1 &7094796019435301773
 GameObject:
   m_ObjectHideFlags: 0
