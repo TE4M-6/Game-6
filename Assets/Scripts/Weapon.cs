@@ -38,6 +38,9 @@ public class Weapon : MonoBehaviour {
     [Tooltip("How quickly does the heat decrease (out of 100)")]
     [SerializeReference] float shotHeatDecrease;
 
+    [Tooltip("The time idle when to start decreasing faster")]
+    [SerializeField] float decreaseRateIncreaseTime = 2f;
+
     [Tooltip("Click each shot or hold mouse down?")]
     public bool _allowHold = false;
 
@@ -55,6 +58,7 @@ public class Weapon : MonoBehaviour {
     float nextFire;
     float heatAmount;
     float shotHeatIncrease;
+    float lastShot;
     bool isOverheated;
 
     float pistolThres;
@@ -77,7 +81,17 @@ public class Weapon : MonoBehaviour {
     // Added by Toni N. - 06122022
     private void Update() {
         heatSlider.value = heatAmount;
-        heatAmount -= shotHeatDecrease * Time.deltaTime;
+
+        // Decrease the heat faster if the weapon hasn't been shot in a while
+        if(Time.time > lastShot + decreaseRateIncreaseTime && !isOverheated) {
+            heatAmount -= shotHeatDecrease * 3f * Time.deltaTime;
+            if (Time.time > lastShot + (decreaseRateIncreaseTime * 2)) {
+                heatAmount -= shotHeatDecrease * 5f * Time.deltaTime;
+            }
+        } else {
+            heatAmount -= shotHeatDecrease * Time.deltaTime;
+        }
+        
 
         // Added by Nuutti J. 07122022
         if (heatAmount > 99f) {
@@ -105,7 +119,10 @@ public class Weapon : MonoBehaviour {
                 // Shoot if the time of the latest shot has passed the fire rate
                 if (Time.time > nextFire) {
 
-                    // Thersholds for different weapon behaviors
+                    // The latest shot time
+                    lastShot = Time.time;
+
+                    // Thresholds for different weapon behaviors
                     if (heatAmount >= 0f && heatAmount < pistolThres) {
                         shotHeatIncrease = heatIncreaseRates[0];
                         heatAmount += heatIncreaseRates[0];
