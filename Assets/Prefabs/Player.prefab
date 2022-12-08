@@ -142,6 +142,64 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2835989, y: 0.43485403}
   m_EdgeRadius: 0
+--- !u!1 &2050631423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2050631424}
+  - component: {fileID: 2050631425}
+  m_Layer: 15
+  m_Name: FeetCollider
+  m_TagString: PlayerFeet
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2050631424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050631423}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.02, y: -0.65, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4252933361118952996}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2050631425
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050631423}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.25}
+  m_EdgeRadius: 0
 --- !u!1 &4252933361118952992
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,6 +241,7 @@ Transform:
   - {fileID: 2029755416}
   - {fileID: 4252933361453772820}
   - {fileID: 101177001}
+  - {fileID: 2050631424}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -226,7 +285,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f3c7a354f8827ba428ccffaa7e5ea68d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -247,7 +306,7 @@ SpriteRenderer:
   m_SortingLayerID: -1203882037
   m_SortingLayer: 8
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1102231075, guid: 82ebcb90e002a5443aa81aa2cecdd297, type: 3}
+  m_Sprite: {fileID: 1604278685, guid: 8ef286cafd5bec54bbc09e024f016a2d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -591,9 +650,85 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: _spreadAngle
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
       propertyPath: shotHeatValue
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: _burstFireRate
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: shotHeatDecrease
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: fireRates.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: projectiles.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: fireRates.Array.data[0]
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: fireRates.Array.data[1]
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: fireRates.Array.data[2]
+      value: 0.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: heatThresholds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: projectiles.Array.data[0]
+      value: 
+      objectReference: {fileID: 8644182195570706725, guid: 8be1d14e71c2bac4a8583873b2acd333, type: 3}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: projectiles.Array.data[1]
+      value: 
+      objectReference: {fileID: 8644182195570706725, guid: 7918d73e5f87e2645a41f64a69fcc3f4, type: 3}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: projectiles.Array.data[2]
+      value: 
+      objectReference: {fileID: 8644182195570706725, guid: 3582edad2d3c8724b87a5d65c4256e65, type: 3}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: heatIncreaseRates.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: heatThresholds.Array.data[0]
+      value: 49.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: heatThresholds.Array.data[1]
+      value: 79.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: heatIncreaseRates.Array.data[0]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: heatIncreaseRates.Array.data[1]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: heatIncreaseRates.Array.data[2]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724963583182836293, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f3c7a354f8827ba428ccffaa7e5ea68d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
 --- !u!4 &6232640400987398756 stripped
