@@ -468,6 +468,7 @@ MonoBehaviour:
   dashCooldown: 2.72
   DashLight: {fileID: 0}
   dashSlider: {fileID: 0}
+  footstep: {fileID: 8300000, guid: 72358a3e4426e1642a1aa109aca5664f, type: 3}
 --- !u!114 &1659851049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,6 +496,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitPoints: 100
   healthSlider: {fileID: 0}
+  playerDeath: {fileID: 8300000, guid: 671e08982f2c90e4abc0ebeb76651527, type: 3}
+  takeDamage: {fileID: 8300000, guid: b38da25bd93871c439b8444c5fbf91ce, type: 3}
 --- !u!1 &4252933361453772823
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,6 +589,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: rifle
+      value: 
+      objectReference: {fileID: 8300000, guid: 72b86353cf27ece4890a43e1672181c1, type: 3}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: pistol
+      value: 
+      objectReference: {fileID: 8300000, guid: 784442d2aa5086d4f871a49a3b301c50, type: 3}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: shotgun
+      value: 
+      objectReference: {fileID: 8300000, guid: a4ec0bb334781454bb60dbeb6943d41a, type: 3}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: gunReady
+      value: 
+      objectReference: {fileID: 8300000, guid: 0d3d6869fd6746e42aa4058e1d0204be, type: 3}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: overheat
+      value: 
+      objectReference: {fileID: 8300000, guid: e12a50845d750b94db934b75cc21f6ca, type: 3}
     - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
       propertyPath: heatSlider
       value: 
