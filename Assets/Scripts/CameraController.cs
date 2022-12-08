@@ -25,17 +25,18 @@ public class CameraController : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("Player")) {
+        if (collision.gameObject.CompareTag("PlayerFeet")) {
+            Transform player = collision.gameObject.transform.parent.gameObject.transform;
             isInRoom = !isInRoom;
 
             if(isInRoom) {
                 mainCam.Priority = 0;
                 camToSwitch.Priority = 1;
-                collision.transform.position = roomEntry.position;
+                player.position = roomEntry.position;
             } else {
                 mainCam.Priority = 1;
                 camToSwitch.Priority = 0;
-                collision.transform.position = roomExit.position;
+                player.transform.position = roomExit.position;
             }
         }
     }

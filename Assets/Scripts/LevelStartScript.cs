@@ -23,7 +23,7 @@ public class LevelStartScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject == playerCharacter)
+        if (other.gameObject.CompareTag("PlayerFeet"))
         {
             playerWeapon.SetActive(true);
             playerCharacter.GetComponent<PlayerAiming>().enabled = true;
