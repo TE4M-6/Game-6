@@ -67,11 +67,11 @@ public class Weapon : MonoBehaviour {
 
     void Awake() {
         _weaponPivot = GetComponentInParent<Transform>();
+
         pistolThres = heatThresholds[0];
         rifleThresLower = Mathf.Ceil(pistolThres);
         rifleThresUpper = heatThresholds[1];
         shotgunThres = Mathf.Ceil(rifleThresUpper);
-        Debug.Log(shotgunThres);
     }
 
     // Added by Toni N. - 06122022
@@ -88,8 +88,7 @@ public class Weapon : MonoBehaviour {
             heatAmount = heatSlider.minValue;
         }
 
-        if (heatAmount > heatSlider.maxValue) 
-        {
+        if (heatAmount > heatSlider.maxValue) {
             heatAmount = heatSlider.maxValue;
         }
     }
