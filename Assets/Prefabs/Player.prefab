@@ -468,7 +468,7 @@ MonoBehaviour:
   dashCooldown: 2.72
   DashLight: {fileID: 0}
   dashSlider: {fileID: 0}
-  footstep: {fileID: 8300000, guid: 72358a3e4426e1642a1aa109aca5664f, type: 3}
+  footstep: {fileID: 8300000, guid: 55f844f550fa70d43b3f76ae92b061ec, type: 3}
 --- !u!114 &1659851049
 MonoBehaviour:
   m_ObjectHideFlags: 0
