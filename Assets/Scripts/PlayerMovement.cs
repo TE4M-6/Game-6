@@ -20,7 +20,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] [Range(1,10)] private float dashCooldown = 1;
     [SerializeField] GameObject DashLight;
     [SerializeField] Slider dashSlider;
-    
+
+    [SerializeField] AudioClip footstep;
     /* HIDDEN FIELDS */
     private Vector2 _rawInputKeys;
     private Vector2 _rawInputMouse;
@@ -100,6 +101,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
     /* EVENT FUNCTIONS */
+    public void OnStep(AnimationEvent animationEvent)
+    {
+        SoundManager.instance.PlaySingle(footstep);
+        
+    }
     private void OnMove(InputValue inputValue)
     {
         _rawInputKeys = inputValue.Get<Vector2>();

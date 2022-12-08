@@ -11,6 +11,7 @@ TagManager:
   - Furniture
   - Gun
   - Enemy
+  - PlayerFeet
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Gun
   - Enemy
   - Projectile
-  - 
+  - Feet
   - 
   - 
   - 

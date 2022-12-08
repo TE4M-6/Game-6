@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 2
   currentHealth: 0
+  batDeath: {fileID: 8300000, guid: 318fd06317c1e8c48b881034ce3250b7, type: 3}
 --- !u!114 &7239554888552308693
 MonoBehaviour:
   m_ObjectHideFlags: 0
