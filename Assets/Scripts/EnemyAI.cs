@@ -5,7 +5,7 @@ using Pathfinding;
 
 /// <summary>
 /// AUTHOR: @Joona H.
-/// Last modified: 1 Dec 2022 by @Daniel K.
+/// Last modified: 08 Dec 2022 by @Daniel K.
 /// </summary>
 public class EnemyAI : MonoBehaviour
 {
@@ -25,12 +25,15 @@ public class EnemyAI : MonoBehaviour
     
 
     Seeker seeker;
-    Rigidbody2D rb;
+    Rigidbody2D enemyRb;
+    private Rigidbody2D playerRb;
+    
     // Start is called before the first frame update
     void Start()
     {
         seeker = GetComponent<Seeker>();
-        rb = GetComponent<Rigidbody2D>();
+        enemyRb = GetComponent<Rigidbody2D>();
+        playerRb = target.GetComponent<Rigidbody2D>();
 
         InvokeRepeating("UpdatePath", 0f, .5f);
         
@@ -38,7 +41,7 @@ public class EnemyAI : MonoBehaviour
     void UpdatePath()
     {
         if (seeker.IsDone())
-        seeker.StartPath(rb.position, target.position, OnPathComplete);
+            seeker.StartPath(enemyRb.position, target.position, OnPathComplete);
     }
     void OnPathComplete(Path p)
     {
@@ -79,12 +82,13 @@ public class EnemyAI : MonoBehaviour
             reachedEndOfPath = false;
         }
 
-        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+        // Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+        Vector2 direction = (playerRb.position - enemyRb.position).normalized; // @Dan - 02.12.2022
         Vector2 force = direction * (speed * Time.deltaTime);
 
-        rb.AddForce(force);
+        enemyRb.AddForce(force);
 
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+        float distance = Vector2.Distance(enemyRb.position, path.vectorPath[currentWaypoint]);
 
         if (distance < waypointDistance)
         {
