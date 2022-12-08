@@ -4810,6 +4810,66 @@ PrefabInstance:
       propertyPath: heatSlider
       value: 
       objectReference: {fileID: 1473568813}
+    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: _spreadAngle
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: _burstFireRate
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: shotHeatDecrease
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: fireRates.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: projectiles.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: fireRates.Array.data[0]
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: fireRates.Array.data[1]
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: fireRates.Array.data[2]
+      value: 0.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: projectiles.Array.data[0]
+      value: 
+      objectReference: {fileID: 8644182195570706725, guid: 8be1d14e71c2bac4a8583873b2acd333, type: 3}
+    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: projectiles.Array.data[1]
+      value: 
+      objectReference: {fileID: 8644182195570706725, guid: 7918d73e5f87e2645a41f64a69fcc3f4, type: 3}
+    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: projectiles.Array.data[2]
+      value: 
+      objectReference: {fileID: 8644182195570706725, guid: 3582edad2d3c8724b87a5d65c4256e65, type: 3}
+    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: heatIncreaseRates.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: heatIncreaseRates.Array.data[0]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: heatIncreaseRates.Array.data[1]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: heatIncreaseRates.Array.data[2]
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7724963583767274471, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
