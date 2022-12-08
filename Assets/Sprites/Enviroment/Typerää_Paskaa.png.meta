@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6a21fc7f32a432f4b813d0fc96a7beb7
+guid: fc463f81a163cfd4fb50b6ddcb1f54e7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -127,7 +127,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "Typer\xE4\xE4_Paskaa_0"
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 1896
+        width: 90
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b99f326ecdbdef845aa9187f30e6d094
+      internalID: -268958055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Typer\xE4\xE4_Paskaa_1"
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 1875
+        width: 182
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb0d0f5c75befc0449984717b51f59bd
+      internalID: -395537189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Typer\xE4\xE4_Paskaa_2"
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 1783
+        width: 179
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a08725db644288042a0dd1dadbb1a4c6
+      internalID: 398444771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Typer\xE4\xE4_Paskaa_3"
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 1828
+        width: 76
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06dbee2a8a6deab46b2da05ad2c0848c
+      internalID: 1724970667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -138,7 +222,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "Typer\xE4\xE4_Paskaa_1": -395537189
+      "Typer\xE4\xE4_Paskaa_0": -268958055
+      "Typer\xE4\xE4_Paskaa_2": 398444771
+      "Typer\xE4\xE4_Paskaa_3": 1724970667
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
