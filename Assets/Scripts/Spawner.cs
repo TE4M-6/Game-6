@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// AUTHOR: @Daniel K.
+/// Last modified: 7 Dec. 2022 by @Daniel K.
+/// </summary>
 public class Spawner : MonoBehaviour
 {
     /* EXPOSED FIELDS */
