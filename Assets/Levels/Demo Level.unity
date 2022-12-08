@@ -3237,6 +3237,10 @@ PrefabInstance:
       propertyPath: heatSlider
       value: 
       objectReference: {fileID: 1473568813}
+    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: decreaseFasterTime
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
 --- !u!1001 &1227681656
