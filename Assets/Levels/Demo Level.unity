@@ -5447,7 +5447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3456229898048348995, guid: 23f9dd89652e4474687f2303a67956b3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.27756
+      value: 28.278406
       objectReference: {fileID: 0}
     - target: {fileID: 3456229898048348995, guid: 23f9dd89652e4474687f2303a67956b3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6779,14 +6779,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4252933361118952999, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1604278685, guid: 8ef286cafd5bec54bbc09e024f016a2d, type: 3}
-    - target: {fileID: 4252933361118952999, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f3c7a354f8827ba428ccffaa7e5ea68d, type: 2}
     - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
       propertyPath: heatSlider
       value: 
@@ -6794,87 +6786,7 @@ PrefabInstance:
     - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
       propertyPath: weaponLight
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: _spreadAngle
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: _burstFireRate
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: shotHeatDecrease
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: fireRates.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: projectiles.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: fireRates.Array.data[0]
-      value: 0.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: fireRates.Array.data[1]
-      value: 0.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: fireRates.Array.data[2]
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: lightEffects.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: projectiles.Array.data[0]
-      value: 
-      objectReference: {fileID: 8644182195570706725, guid: 8be1d14e71c2bac4a8583873b2acd333, type: 3}
-    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: projectiles.Array.data[1]
-      value: 
-      objectReference: {fileID: 8644182195570706725, guid: 7918d73e5f87e2645a41f64a69fcc3f4, type: 3}
-    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: projectiles.Array.data[2]
-      value: 
-      objectReference: {fileID: 8644182195570706725, guid: 3582edad2d3c8724b87a5d65c4256e65, type: 3}
-    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: lightEffects.Array.data[0]
-      value: 
-      objectReference: {fileID: 6216118191273132408, guid: 9301c525946552a4b92cd2d357da751b, type: 3}
-    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: lightEffects.Array.data[1]
-      value: 
-      objectReference: {fileID: 333717532877544984, guid: 337e597053fff46448d3c2e22a8340fc, type: 3}
-    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: lightEffects.Array.data[2]
-      value: 
-      objectReference: {fileID: 8737784363327442898, guid: 5fc93ba36bb48b74ebfb1cde0e19cad7, type: 3}
-    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: heatIncreaseRates.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: heatIncreaseRates.Array.data[0]
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: heatIncreaseRates.Array.data[1]
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7414198559103826709, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: heatIncreaseRates.Array.data[2]
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7724963583767274471, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f3c7a354f8827ba428ccffaa7e5ea68d, type: 2}
+      objectReference: {fileID: 2041220726}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
 --- !u!1 &1201880147
@@ -11116,6 +11028,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1170837746827831504, guid: f52192ffa5995e34ab37ea5aca86e999, type: 3}
   m_PrefabInstance: {fileID: 1170837747209834991}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2041220726 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 496488620307042865, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+  m_PrefabInstance: {fileID: 1149982798}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2060639909
 GameObject:
   m_ObjectHideFlags: 0
@@ -12867,6 +12790,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 6a21fc7f32a432f4b813d0fc96a7beb7, type: 3}
+    - target: {fileID: 6767150001522152174, guid: 7969fe7356cc2fe44b1a6d642e08646d, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6767150001522152174, guid: 7969fe7356cc2fe44b1a6d642e08646d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

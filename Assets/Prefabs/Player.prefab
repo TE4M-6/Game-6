@@ -673,6 +673,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: weaponLight
+      value: 
+      objectReference: {fileID: 4953899884828039803, guid: 3d4609878be6e4d44b45f2de9bec08ef, type: 3}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
       propertyPath: _spreadAngle
       value: 28
       objectReference: {fileID: 0}
@@ -709,6 +713,10 @@ PrefabInstance:
       value: 0.88
       objectReference: {fileID: 0}
     - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: lightEffects.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
       propertyPath: heatThresholds.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -724,6 +732,18 @@ PrefabInstance:
       propertyPath: projectiles.Array.data[2]
       value: 
       objectReference: {fileID: 8644182195570706725, guid: 3582edad2d3c8724b87a5d65c4256e65, type: 3}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: lightEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 6216118191273132408, guid: 9301c525946552a4b92cd2d357da751b, type: 3}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: lightEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 333717532877544984, guid: 337e597053fff46448d3c2e22a8340fc, type: 3}
+    - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: lightEffects.Array.data[2]
+      value: 
+      objectReference: {fileID: 8737784363327442898, guid: 5fc93ba36bb48b74ebfb1cde0e19cad7, type: 3}
     - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
       propertyPath: heatIncreaseRates.Array.size
       value: 3
