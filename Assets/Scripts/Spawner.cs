@@ -51,7 +51,7 @@ public class Spawner : MonoBehaviour
             float offsetY = Random.Range(aimingOffsetMin, aimingOffsetMax);
             Vector2 direction = (aimingTool.transform.position - spawner.transform.position).normalized;
             direction = new Vector2(direction.x + offsetX, direction.y + offsetY);
-            Debug.Log(direction);
+            // Debug.Log(direction);
             
             var obj = Instantiate(enemy, spawner.position, spawner.rotation, spawner);
             obj.SetActive(true);
