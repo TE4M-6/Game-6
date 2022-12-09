@@ -123,15 +123,15 @@ public class Weapon : MonoBehaviour {
             heatAmount = heatSlider.maxValue;
         }
         
-        if (heatAmount >= 0 && heatAmount < 54.99)
+        if (heatAmount >= 0f && heatAmount < pistolThres)
         {
             weaponLight.color = Color.green;
         }
-        else if (heatAmount > 55 && heatAmount < 79.99)
+        else if (heatAmount > rifleThresLower && heatAmount < rifleThresUpper)
         {
             weaponLight.color = Color.yellow;
         }
-        else if (heatAmount > 80)
+        else if (heatAmount > shotgunThres)
         {
             weaponLight.color = Color.red;
         } // Toni - 08.12.2022
