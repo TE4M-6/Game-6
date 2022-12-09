@@ -17,7 +17,7 @@ public class DoorAnimation : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.gameObject.tag == "PlayerFeet")
         {
             SoundManager.instance.PlaySingle(doorOpen);
             _animator.Play("Door_Open_Animation");
@@ -25,7 +25,7 @@ public class DoorAnimation : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "PlayerFeet")
         {
             SoundManager.instance.PlaySingle(doorOpen);
             _animator.Play("Door_Close_Animation");
@@ -33,7 +33,7 @@ public class DoorAnimation : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "PlayerFeet")
         {
             _animator.Play("Door_Is_Open");
         }
