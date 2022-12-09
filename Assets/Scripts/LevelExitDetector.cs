@@ -9,6 +9,8 @@ public class LevelExitDetector : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            Timer.TurnOffTimer();
+            Timer.GetTimer();
             FindObjectOfType<EndOfGameScript>().GameWon();
         }
     }
