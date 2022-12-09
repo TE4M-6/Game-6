@@ -25,6 +25,11 @@ public class Projectile : MonoBehaviour {
             Instantiate(bloodSplatter, collision.gameObject.transform.position, Quaternion.identity);
         }
 
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            collision.gameObject.GetComponent<ObstacleHealth>().TakeDamage(_damage);
+        }
+
     }
 
 }
