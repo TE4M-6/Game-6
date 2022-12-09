@@ -25,8 +25,12 @@ public class SceneLoader : MonoBehaviour
     [SerializeField]
     private Button continueButton;
 
+    [SerializeField]
+    private AudioClip gameStartSound;
+
     public void NewGame()
     {
+        SoundManager.instance.PlaySingle(gameStartSound);
         SceneManager.LoadScene("Demo Level");
         Time.timeScale = 1;
     }
