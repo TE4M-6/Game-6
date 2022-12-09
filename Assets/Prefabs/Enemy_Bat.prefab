@@ -110,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   enemyGraphics: {fileID: 6405031093369212444}
-  speed: 600
+  speed: 1000
   waypointDistance: 0.2
   chaseRadius: 8.7
 --- !u!114 &6405031093082980451
