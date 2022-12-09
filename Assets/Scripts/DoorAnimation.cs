@@ -31,11 +31,4 @@ public class DoorAnimation : MonoBehaviour
             _animator.Play("Door_Close_Animation");
         }
     }
-    private void OnCollisionStay2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "PlayerFeet")
-        {
-            _animator.Play("Door_Is_Open");
-        }
-    }
 }
