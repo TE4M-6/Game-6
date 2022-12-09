@@ -12,6 +12,7 @@ TagManager:
   - Gun
   - Enemy
   - PlayerFeet
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - Enemy
   - Projectile
   - Feet
-  - 
+  - Obstacle
   - 
   - 
   - 
