@@ -17,7 +17,6 @@ public class Timer : MonoBehaviour
     
     void Start()
     {
-        // timer = Time.time;
         _timer = Time.timeSinceLevelLoad;
     }
     
@@ -27,11 +26,20 @@ public class Timer : MonoBehaviour
         DisplayTime();
     }
 
+    /* PRIVATE METHODS */
+    private void SampleTime()
+    {
+        if (!_isTimeMeasured) return;
+        // timer = Time.time;
+        _timer = Time.timeSinceLevelLoad;
+    }
+
     private void DisplayTime()
     {
         timeText.text = GetTimer();
     }
 
+    /* PUBLIC METHODS */
     public static void TurnOffTimer()
     {
         _isTimeMeasured = false;
@@ -44,12 +52,5 @@ public class Timer : MonoBehaviour
         int mSeconds = Mathf.FloorToInt(_timer*100.0f % 100.0f);
         string formattedTime = $"{minutes:0}:{seconds:00}:{mSeconds:00}";
         return formattedTime;
-    }
-    
-    private void SampleTime()
-    {
-        if (!_isTimeMeasured) return;
-        // timer = Time.time;
-        _timer = Time.timeSinceLevelLoad;
     }
 }
