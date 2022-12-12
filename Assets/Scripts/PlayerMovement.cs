@@ -109,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Condition:
         if (!_canDash) yield break;
+        if (_rigidbody.velocity.magnitude == 0) yield break;
 
         SoundManager.instance.PlaySingle(dash);
         _trailRenderer.emitting = true;
