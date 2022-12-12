@@ -1,12 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// AUTHOR: @Toni
+/// Last modified: 12 Dec. 2022 by @Daniel K.
+/// </summary>
+///
+/// 
 public class LevelStartScript : MonoBehaviour
 {
     [SerializeField] private GameObject playerWeapon;
     [SerializeField] private GameObject playerCharacter;
     [SerializeField] private GameObject hud;
+
+    private GameObject [] cutScenes;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +27,13 @@ public class LevelStartScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.FindGameObjectsWithTag("Cutscene Canvas").Length == 0)
+        PlayCutscenes();
+    }
+
+    private void PlayCutscenes()
+    {
+        cutScenes = GameObject.FindGameObjectsWithTag("Cutscene Canvas");
+        if (cutScenes.Length == 0)
         {
             playerCharacter.SetActive(true);
             hud.SetActive(true);
