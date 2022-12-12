@@ -40,9 +40,10 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _trailRenderer = GetComponent<TrailRenderer>();
         _animator = GetComponent<Animator>();
-        dashSlider.value = dashCooldown;
 
         // Calling Methods:
+        dashSlider.value = dashCooldown;
+        _trailRenderer.emitting = false;
     }
 
     private void Update()
@@ -81,23 +82,17 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetBool(IsMoving, false);
         
         if (!_isDashing)
-        {
             _rigidbody.velocity = playerVelocity;
-            _trailRenderer.emitting = false;
-        }
         if (_isDashing)
-        {
             _rigidbody.velocity = dashPower * playerVelocity;
-            _trailRenderer.emitting = true;
-        }
     }
 
     /* EVENT FUNCTIONS */
     public void OnStep(AnimationEvent animationEvent)
     {
         SoundManager.instance.PlaySingle(footstep);
-
     }
+    
     private void OnMove(InputValue inputValue)
     {
         _rawInputKeys = inputValue.Get<Vector2>();
@@ -116,11 +111,13 @@ public class PlayerMovement : MonoBehaviour
         if (!_canDash) yield break;
 
         SoundManager.instance.PlaySingle(dash);
+        _trailRenderer.emitting = true;
         _canDash = false;
         _isDashing = true;
         DashLight.SetActive(false);
         FillDash();
         yield return new WaitForSeconds(dashingTime);
+        _trailRenderer.emitting = false;
         _isDashing = false;
         yield return new WaitForSeconds(dashCooldown);
         _canDash = true;
