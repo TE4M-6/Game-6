@@ -19,7 +19,8 @@ public class PauseScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape) && !gameWonCanvas && !gameOverCanvas)
+        Debug.Log(gameWonCanvas, gameOverCanvas);
+        if (Input.GetKeyUp(KeyCode.Escape) && gameWonCanvas.activeSelf == false && gameOverCanvas.activeSelf == false)
         {
            if (pauseCanvas.activeInHierarchy)
             {
