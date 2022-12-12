@@ -12,13 +12,13 @@ public class Timer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timeText;
     
     /* HIDDEN FIELDS */
-    private static float timer;
-    private static bool isTimeMeasured = true;
+    private static float _timer;
+    private static bool _isTimeMeasured = true;
     
     void Start()
     {
         // timer = Time.time;
-        timer = Time.timeSinceLevelLoad;
+        _timer = Time.timeSinceLevelLoad;
     }
     
     void FixedUpdate()
@@ -34,22 +34,22 @@ public class Timer : MonoBehaviour
 
     public static void TurnOffTimer()
     {
-        isTimeMeasured = false;
+        _isTimeMeasured = false;
     }
 
     public static string GetTimer()
     {
-        int minutes = Mathf.FloorToInt(timer / 60F);
-        int seconds = Mathf.FloorToInt(timer - minutes * 60);
-        int mSeconds = Mathf.FloorToInt(timer*100.0f % 100.0f);
+        int minutes = Mathf.FloorToInt(_timer / 60F);
+        int seconds = Mathf.FloorToInt(_timer - minutes * 60);
+        int mSeconds = Mathf.FloorToInt(_timer*100.0f % 100.0f);
         string formattedTime = $"{minutes:0}:{seconds:00}:{mSeconds:00}";
         return formattedTime;
     }
     
     private void SampleTime()
     {
-        if (!isTimeMeasured) return;
+        if (!_isTimeMeasured) return;
         // timer = Time.time;
-        timer = Time.timeSinceLevelLoad;
+        _timer = Time.timeSinceLevelLoad;
     }
 }
