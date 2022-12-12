@@ -6,11 +6,13 @@ public class LevelStartScript : MonoBehaviour
 {
     [SerializeField] private GameObject playerWeapon;
     [SerializeField] private GameObject playerCharacter;
+    [SerializeField] private GameObject hud;
 
     // Start is called before the first frame update
     void Start()
     {
         playerCharacter.SetActive(false);
+        hud.SetActive(false);
         playerWeapon.SetActive(false);
         playerCharacter.GetComponent<PlayerAiming>().enabled = false;
         playerCharacter.GetComponent<PlayerShooting>().enabled = false;
@@ -22,6 +24,7 @@ public class LevelStartScript : MonoBehaviour
         if (GameObject.FindGameObjectsWithTag("Cutscene Canvas").Length == 0)
         {
             playerCharacter.SetActive(true);
+            hud.SetActive(true);
         }
     }
 
