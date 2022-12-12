@@ -25,7 +25,7 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     /* Play a sound effect one time */
