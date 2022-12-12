@@ -78,3 +78,6 @@ crashlytics-build.properties
 .idea/.idea.Game 6/.idea/indexLayout.xml
 
 .vsconfig
+
+# Merging Conflict:
+/Assets/Fonts/TdmexBitmap-PKBd SDF.asset
