@@ -40,6 +40,11 @@ public class SceneLoader : MonoBehaviour
         black.enabled = false;
     }
 
+    public static void LoadDemoGame()
+    {
+        SceneManager.LoadScene("Demo Level");
+    }
+
     public void NewGameButton()
     {
         Time.timeScale = 1;
@@ -64,7 +69,7 @@ public class SceneLoader : MonoBehaviour
         }
         curColor.a = 1f; 
         black.color = curColor;
-        SceneManager.LoadScene("Demo Level");
+        SceneManager.LoadScene("Cut Scene");
     }
 
     public void Options()

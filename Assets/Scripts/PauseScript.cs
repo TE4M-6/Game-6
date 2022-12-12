@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 /// <summary>
 /// AUTHOR: @Toni
-/// Last modified: 05 Dec. 2022 by @Daniel K.
+/// Last modified: 12 Dec. 2022 by @Daniel K /  @Joona.
 /// </summary>
 /// 
 public class PauseScript : MonoBehaviour
@@ -15,19 +16,19 @@ public class PauseScript : MonoBehaviour
     private GameObject optionsCanvas;
     [SerializeField] private GameObject gameWonCanvas;
     [SerializeField] private GameObject gameOverCanvas;
-    private GameObject playerCharacter;
+    [SerializeField] private GameObject playerCharacter;
     
-    // Update is called once per frame
     void Update()
+    {
+        PauseGame();
+    }
+
+    private void PauseGame() // modified. by @Daniel K / @Joona - 12 Dec 2022.
     {
         if (Input.GetKeyUp(KeyCode.Escape) && gameWonCanvas.activeSelf == false && gameOverCanvas.activeSelf == false)
         {
-           if (pauseCanvas.activeInHierarchy)
-            {
+            if (pauseCanvas.activeInHierarchy)
                 continueGame();
-                playerCharacter.GetComponent<PlayerShooting>().enabled = true;
-
-            } 
             else
             {
                 pauseCanvas.SetActive(true);
@@ -39,6 +40,7 @@ public class PauseScript : MonoBehaviour
 
     public void continueGame()
     {
+        playerCharacter.GetComponent<PlayerShooting>().enabled = true;
         optionsCanvas.SetActive(false);
         pauseCanvas.SetActive(false);
         Time.timeScale = 1f;
