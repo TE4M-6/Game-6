@@ -43,6 +43,9 @@ public class SceneLoader : MonoBehaviour
     public void NewGameButton()
     {
         Time.timeScale = 1;
+        newGameButton.interactable = false;
+        optionsButton.interactable = false;
+        creditsButton.interactable = false;
         black.enabled = true;
         spaceShipAnimation.Play("NewGame_Animation");
         SoundManager.instance.PlaySingle(gameStartSound);
