@@ -703,7 +703,7 @@ GameObject:
   - component: {fileID: 144160189}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Cutscene Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8139,7 +8139,7 @@ PrefabInstance:
     - target: {fileID: 32866063, guid: f2819a5253fe67f4dbf44c5b5da06071, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 61eed48d74f5a724686b4ea88e44ee0e, type: 3}
+      objectReference: {fileID: 8300000, guid: 64f66549df619314da3837c904c13cd6, type: 3}
     - target: {fileID: 71888893, guid: f2819a5253fe67f4dbf44c5b5da06071, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -11357,6 +11357,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0050006, y: 1.8390923}
   m_EdgeRadius: 0
+--- !u!95 &1882049521
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882049517}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 99bad70481ceed54c8131c94cbc12a06, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1882805363 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4227812229440778308, guid: ef0a0b5ac6ee7dc4ba95ae46821f54b5, type: 3}
@@ -11922,7 +11942,7 @@ GameObject:
   - component: {fileID: 1942035220}
   m_Layer: 0
   m_Name: CutScenes
-  m_TagString: Untagged
+  m_TagString: Cutscene Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
