@@ -361,6 +361,7 @@ MonoBehaviour:
   optionsCanvas: {fileID: 0}
   gameWonCanvas: {fileID: 0}
   gameOverCanvas: {fileID: 0}
+  playerCharacter: {fileID: 0}
 --- !u!4 &140211883
 Transform:
   m_ObjectHideFlags: 0
@@ -3183,7 +3184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3456229898048348995, guid: 23f9dd89652e4474687f2303a67956b3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.280312
+      value: 28.283203
       objectReference: {fileID: 0}
     - target: {fileID: 3456229898048348995, guid: 23f9dd89652e4474687f2303a67956b3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7474,6 +7475,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1003575347642887798}
   - component: {fileID: 1003575347642887797}
+  - component: {fileID: 1003575347642887799}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -7488,7 +7490,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003575347642887796}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6f0bf2edfa158d46a29e0259b1d0be9, type: 3}
   m_Name: 
@@ -7509,6 +7511,21 @@ Transform:
   m_Father: {fileID: 1003575347491111436}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1003575347642887799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003575347642887796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a08b73cfcf5e1d5499bb9eb9fc1535e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerWeapon: {fileID: 0}
+  playerCharacter: {fileID: 0}
+  hud: {fileID: 0}
 --- !u!4 &1003575348896478168
 Transform:
   m_ObjectHideFlags: 0
