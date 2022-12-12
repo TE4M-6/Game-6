@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// AUTHOR: @Nuutti J.
-/// Last modified: 7 Dec 2022 by @Nuutti J.
+/// Last modified: 12 Dec 2022 by @Nuutti J.
 /// </summary>
 
 public class PlayerAiming : MonoBehaviour {
@@ -31,6 +31,8 @@ public class PlayerAiming : MonoBehaviour {
     Vector3 mouseWorldPos;
     Vector2 rotateDir;
     SpriteRenderer weaponRenderer;
+    bool fromRight;
+    bool fromLeft;
 
     void Awake() {
         weaponRenderer = GetComponentInChildren<Weapon>().GetComponent<SpriteRenderer>();    
@@ -62,17 +64,34 @@ public class PlayerAiming : MonoBehaviour {
 
         // Flip the gun depending on the side the cursor is on
         // If flipped inside the exclusion zone, just invert the latest stored rotateDir x-axis
+
+        // Left side
         if (mouseWorldPos.x < transform.position.x) {
             if(isInExclusionZone()) {
-                pivot.transform.right = new Vector2(-rotateDir.x, rotateDir.y);
+                fromLeft = true;
+
+                if(fromRight) {
+                    pivot.transform.right = new Vector2(-rotateDir.x, rotateDir.y);
+                }
+            } else {
+                fromRight = false;
             }
             
             weaponScale.x = -1;
             weaponScale.y = -1;
             pivot.transform.localScale = weaponScale;
+
+        // Right side
         } else if (mouseWorldPos.x > transform.position.x) {
             if (isInExclusionZone()) {
-                pivot.transform.right = rotateDir;
+                fromRight = true;
+
+                if (fromLeft) {
+                    pivot.transform.right = new Vector2(-rotateDir.x, rotateDir.y);
+                }
+                //pivot.transform.right = rotateDir;
+            } else {
+                fromLeft = false;
             }
 
             weaponScale.x = 1;
