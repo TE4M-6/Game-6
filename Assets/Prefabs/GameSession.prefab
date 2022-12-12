@@ -5061,6 +5061,7 @@ MonoBehaviour:
   optionsCanvas: {fileID: 71888893}
   gameWonCanvas: {fileID: 867364060}
   gameOverCanvas: {fileID: 737130404}
+  playerCharacter: {fileID: 0}
 --- !u!114 &466430658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8207,6 +8208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1003575348862045552}
   - component: {fileID: 1003575348862045555}
+  - component: {fileID: 2089678700}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -8242,6 +8244,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimingReticle: {fileID: 2800000, guid: 345e6035b9cdb5144b841044562326ea, type: 3}
+--- !u!114 &2089678700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003575348862045554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51606293af38a9545a6f17b8afd0ca1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeText: {fileID: 1629360961}
 --- !u!1 &2453993503399944370
 GameObject:
   m_ObjectHideFlags: 0
