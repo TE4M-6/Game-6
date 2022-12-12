@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -14,22 +15,24 @@ public class PauseScript : MonoBehaviour
     private GameObject optionsCanvas;
     [SerializeField] private GameObject gameWonCanvas;
     [SerializeField] private GameObject gameOverCanvas;
-
-
+    private GameObject playerCharacter;
+    
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(gameWonCanvas, gameOverCanvas);
         if (Input.GetKeyUp(KeyCode.Escape) && gameWonCanvas.activeSelf == false && gameOverCanvas.activeSelf == false)
         {
            if (pauseCanvas.activeInHierarchy)
             {
                 continueGame();
+                playerCharacter.GetComponent<PlayerShooting>().enabled = true;
+
             } 
             else
             {
                 pauseCanvas.SetActive(true);
                 Time.timeScale = 0f;
+                playerCharacter.GetComponent<PlayerShooting>().enabled = false;
             }
         }
     }
