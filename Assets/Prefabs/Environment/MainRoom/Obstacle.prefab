@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1352877992817617625}
   - component: {fileID: 1352877992817617626}
   - component: {fileID: 6757604859881691927}
-  - component: {fileID: -6155788259705699017}
   - component: {fileID: -5131646373070348615}
   - component: {fileID: -2846730226842018914}
+  - component: {fileID: 3006905981027343433}
   m_Layer: 10
   m_Name: Obstacle
   m_TagString: Obstacle
@@ -102,32 +102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitPoint: 10
   flash: {fileID: -5131646373070348615}
---- !u!61 &-6155788259705699017
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352877992817617624}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.56, y: 2.56}
-  m_EdgeRadius: 0
 --- !u!114 &-5131646373070348615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,3 +135,66 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!60 &3006905981027343433
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352877992817617624}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.56, y: 2.56}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.01, y: -0.06}
+      - {x: 1.01, y: 0.049999997}
+      - {x: 0.98999995, y: 0.69}
+      - {x: 0.9, y: 1}
+      - {x: 0.56, y: 1.18}
+      - {x: 0.44, y: 1.1999999}
+      - {x: -0.14, y: 1.1999999}
+      - {x: -0.35999998, y: 0.95}
+      - {x: -0.29, y: 0.72999996}
+      - {x: -0.95, y: 0.72999996}
+      - {x: -0.98999995, y: 0.69}
+      - {x: -1.01, y: -0.049999997}
+      - {x: -1.1899999, y: -0.47}
+      - {x: -1.1899999, y: -1.23}
+      - {x: -1.15, y: -1.27}
+      - {x: 1.15, y: -1.27}
+      - {x: 1.1899999, y: -1.23}
+      - {x: 1.1899999, y: -0.47}
+      - {x: 1.15, y: -0.42999998}
+    - - {x: -0.089999996, y: 0.76}
+      - {x: -0.08, y: 0.77}
+      - {x: -0.08, y: 0.83}
+      - {x: -0.07, y: 0.84}
+      - {x: -0.07, y: 0.87}
+      - {x: -0.06, y: 0.88}
+      - {x: -0.06, y: 0.91999996}
+      - {x: -0.04, y: 0.94}
+      - {x: -0.03, y: 0.97999996}
+      - {x: 0, y: 1.01}
+      - {x: 0.049999997, y: 1.02}
+      - {x: 0, y: 0.96999997}
+      - {x: 0, y: 0.89}
+      - {x: 0.07, y: 0.82}
+      - {x: 0.07, y: 0.79999995}
+      - {x: 0.099999994, y: 0.76}
+      - {x: 0.099999994, y: 0.75}
+      - {x: 0.089999996, y: 0.74}
+      - {x: -0.089999996, y: 0.74}
