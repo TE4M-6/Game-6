@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 /// <summary>
 /// AUTHOR: @Nuutti J.
-/// Last modified: 7 Dec. 2022 by @Nuutti J.
+/// Last modified: 12 Dec. 2022 by @Daniel K.
 /// </summary>
 
 public class PlayerShooting : MonoBehaviour {
@@ -28,6 +28,7 @@ public class PlayerShooting : MonoBehaviour {
     void OnDisable() {
         _shootInput.action.performed -= PerformShoot;
         _shootInput.action.canceled -= PerformShoot;
+        isShooting = false; // @Dan - 12Dec2022
     }
 
     void Start() {
