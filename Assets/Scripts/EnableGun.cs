@@ -9,15 +9,14 @@ public class EnableGun : MonoBehaviour
 {
     [SerializeField] private GameObject playerWeapon;
     [SerializeField] private GameObject playerCharacter;
-    [SerializeField] private GameObject hud;
+    // [SerializeField] private GameObject hud;
 
     private GameObject [] cutScenes;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerCharacter.SetActive(false);
-        hud.SetActive(false);
+        // hud.SetActive(false);
         playerWeapon.SetActive(false);
         playerCharacter.GetComponent<PlayerAiming>().enabled = false;
         playerCharacter.GetComponent<PlayerShooting>().enabled = false;
