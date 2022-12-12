@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1352877992817617626}
   - component: {fileID: 6757604859881691927}
   - component: {fileID: -6155788259705699017}
+  - component: {fileID: -5131646373070348615}
+  - component: {fileID: -2846730226842018914}
   m_Layer: 10
   m_Name: Obstacle
   m_TagString: Obstacle
@@ -99,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoint: 10
+  flash: {fileID: -5131646373070348615}
 --- !u!61 &-6155788259705699017
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -125,3 +128,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.56, y: 2.56}
   m_EdgeRadius: 0
+--- !u!114 &-5131646373070348615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352877992817617624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 620dcc2a178c6284bb9f3c828387188d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 2e88dfb24c6878b4fb1877a5e3695611, type: 2}
+--- !u!95 &-2846730226842018914
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352877992817617624}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 571571318be628c4ebb4431910707d13, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

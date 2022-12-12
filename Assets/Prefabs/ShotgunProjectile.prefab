@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodSplatter: {fileID: 8723408382655539779, guid: 48205ce2cf060ec479bb589e32ac4b11, type: 3}
+  projectileDestroyed: {fileID: 477697846056533257, guid: ab1e7b9e847048f4fbdaaab1a9607ecd, type: 3}
   _speed: 8
   _damage: 0.8
 --- !u!50 &5262941702938651232
