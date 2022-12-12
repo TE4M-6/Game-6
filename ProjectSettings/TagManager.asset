@@ -13,6 +13,7 @@ TagManager:
   - Enemy
   - PlayerFeet
   - Obstacle
+  - Cutscene Canvas
   layers:
   - Default
   - TransparentFX
