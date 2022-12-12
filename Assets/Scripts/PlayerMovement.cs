@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /// <summary>
 /// @Daniel K.
 /// Initial commit: 29-Nov-2022
-/// Last modified: 05 Dec 2022 by @Toni N.
+/// Last modified: 12 Dec 2022 by @Daniel K.
 /// </summary>
 public class PlayerMovement : MonoBehaviour
 {
@@ -63,23 +63,15 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 screenPosition = Mouse.current.position.ReadValue();
         Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
-        // Debug.Log("worldPosition.x => " + worldPosition.x);
-        // Debug.Log("worldPosition.y => " + worldPosition.y);
 
         if (worldPosition.x > _rigidbody.position.x)
         {
-            // Debug.Log("worldPosition.x > _rigidbody.position.x");
             transform.localScale = new Vector2(Mathf.Sign(+1), 1f);
         }
         if (worldPosition.x < _rigidbody.position.x)
         {
-            // Debug.Log("worldPosition.x < _rigidbody.position.x");
             transform.localScale = new Vector2(Mathf.Sign(-1), 1f);
         }
-        
-        // Getting position data:
-        // Debug.Log("Playa.X: " + _rigidbody.position.x);
-        // Debug.Log("Mouse.X: " + worldPosition.x);
     }
     private void Move()
     {
@@ -114,7 +106,6 @@ public class PlayerMovement : MonoBehaviour
     
     private void OnDash(InputValue inputValue)
     {
-        // if (!_canDash) return;
         StartCoroutine(DashCoroutine());
     }
     
