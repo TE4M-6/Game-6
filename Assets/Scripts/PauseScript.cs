@@ -12,11 +12,14 @@ public class PauseScript : MonoBehaviour
     private GameObject pauseCanvas;
     [SerializeField]
     private GameObject optionsCanvas;
+    [SerializeField] private GameObject gameWonCanvas;
+    [SerializeField] private GameObject gameOverCanvas;
+
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (Input.GetKeyUp(KeyCode.Escape) && !gameWonCanvas && !gameOverCanvas)
         {
            if (pauseCanvas.activeInHierarchy)
             {

@@ -800,6 +800,11 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &198535985 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 737130404, guid: f2819a5253fe67f4dbf44c5b5da06071, type: 3}
+  m_PrefabInstance: {fileID: 1272259334}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &205081417
 GameObject:
   m_ObjectHideFlags: 0
@@ -5744,7 +5749,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3456229898048348995, guid: 23f9dd89652e4474687f2303a67956b3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.282692
+      value: 28.280031
       objectReference: {fileID: 0}
     - target: {fileID: 3456229898048348995, guid: 23f9dd89652e4474687f2303a67956b3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7764,6 +7769,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1133401516, guid: f2819a5253fe67f4dbf44c5b5da06071, type: 3}
+      propertyPath: gameWonCanvas
+      value: 
+      objectReference: {fileID: 1885818432}
+    - target: {fileID: 1133401516, guid: f2819a5253fe67f4dbf44c5b5da06071, type: 3}
+      propertyPath: gameOverCanvas
+      value: 
+      objectReference: {fileID: 198535985}
     - target: {fileID: 1308848061, guid: f2819a5253fe67f4dbf44c5b5da06071, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -10900,6 +10913,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1885818432 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 867364060, guid: f2819a5253fe67f4dbf44c5b5da06071, type: 3}
+  m_PrefabInstance: {fileID: 1272259334}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1891292106
 GameObject:
   m_ObjectHideFlags: 0
