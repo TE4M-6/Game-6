@@ -2,13 +2,21 @@ using UnityEngine;
 
 /// <summary>
 /// AUTHOR: @Nuutti J.
-/// Last modified: 01 Dec 2022 by @Daniel K.
+/// Last modified: 13 Dec 2022 by @Nuutti J.
 /// </summary>
 
 public class CustomCursor : MonoBehaviour {
 
     /* EXPOSED FIELDS: */
     [SerializeField] Texture2D aimingReticle;
+    static Vector2 customCursorSize;
+    static Texture2D customCursorTex;
+
+    void Awake() {
+        customCursorSize.x = aimingReticle.width;
+        customCursorSize.y = aimingReticle.height;
+        customCursorTex = aimingReticle;
+    }
 
     void Start()
     {
@@ -21,10 +29,10 @@ public class CustomCursor : MonoBehaviour {
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
     
-    private void SetCustomCursor()
+    public static void SetCustomCursor()
     {
-        Vector2 hotspot = new Vector2(aimingReticle.width / 2, aimingReticle.height / 2);
-        Cursor.SetCursor(aimingReticle, hotspot, CursorMode.Auto);
+        Vector2 hotspot = new Vector2(customCursorSize.x / 2, customCursorSize.y / 2);
+        Cursor.SetCursor(customCursorTex, hotspot, CursorMode.Auto);
     }
 
     //Added by Daniel K. - 01122022

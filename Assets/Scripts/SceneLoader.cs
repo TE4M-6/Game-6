@@ -22,6 +22,8 @@ public class SceneLoader : MonoBehaviour
     private Button optionsButton;
     [SerializeField]
     private Button creditsButton;
+    [SerializeField]
+    private Button quitButton;
 
     [SerializeField]
     private AudioClip gameStartSound;
@@ -49,6 +51,7 @@ public class SceneLoader : MonoBehaviour
         newGameButton.interactable = false;
         optionsButton.interactable = false;
         creditsButton.interactable = false;
+        quitButton.interactable = false;
         black.enabled = true;
         spaceShipAnimation.Play("NewGame_Animation");
         SoundManager.instance.PlaySingle(gameStartSound);
@@ -76,6 +79,7 @@ public class SceneLoader : MonoBehaviour
         newGameButton.interactable = false;
         optionsButton.interactable = false;
         creditsButton.interactable = false;
+        quitButton.interactable = false;
     }
 
     public void CloseOptions()
@@ -84,6 +88,7 @@ public class SceneLoader : MonoBehaviour
         newGameButton.interactable = true;
         optionsButton.interactable = true;
         creditsButton.interactable = true;
+        quitButton.interactable = true;
     }
 
     public void Credits()
@@ -92,6 +97,7 @@ public class SceneLoader : MonoBehaviour
         newGameButton.interactable = false;
         optionsButton.interactable = false;
         creditsButton.interactable = false;
+        quitButton.interactable = false;
     }
 
     public void CloseCredits()
@@ -100,6 +106,12 @@ public class SceneLoader : MonoBehaviour
         newGameButton.interactable = true;
         optionsButton.interactable = true;
         creditsButton.interactable = true;
+        quitButton.interactable = true;
+    }
+
+    // 131222 @Nuutti J.
+    public void QuitGame() {
+        Application.Quit();
     }
 
 }
