@@ -507,7 +507,7 @@ MonoBehaviour:
   pivot: {fileID: 4252933361453772823}
   exclusionZone: {fileID: 2029755417}
   playerRenderer: {fileID: 4252933361118952999}
-  hideThresholdStart: 75
+  hideThresholdStart: 56
   hideThresholdEnd: 125
 --- !u!114 &1659851026
 MonoBehaviour:
