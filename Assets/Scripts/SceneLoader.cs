@@ -104,6 +104,7 @@ public class SceneLoader : MonoBehaviour
         creditsButton.interactable = true;
     }
 
+    // 131222 @Nuutti J.
     public void QuitGame() {
         Application.Quit();
     }
