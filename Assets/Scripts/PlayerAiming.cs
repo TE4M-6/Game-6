@@ -67,29 +67,36 @@ public class PlayerAiming : MonoBehaviour {
 
         // Left side
         if (mouseWorldPos.x < transform.position.x) {
-            if(isInExclusionZone()) {
+            if (!fromRight) {
                 fromLeft = true;
+            }
 
-                if(fromRight) {
-                    pivot.transform.right = new Vector2(-rotateDir.x, rotateDir.y);
+            if (isInExclusionZone()) {
+                if (fromRight) {
+                    fromRight = false;
+                    rotateDir = new Vector2(-rotateDir.x, rotateDir.y);
+                    pivot.transform.right = rotateDir;
                 }
             } else {
                 fromRight = false;
             }
-            
+
             weaponScale.x = -1;
             weaponScale.y = -1;
             pivot.transform.localScale = weaponScale;
 
-        // Right side
+            // Right side
         } else if (mouseWorldPos.x > transform.position.x) {
-            if (isInExclusionZone()) {
+            if (!fromLeft) {
                 fromRight = true;
+            }
 
+            if (isInExclusionZone()) {
                 if (fromLeft) {
-                    pivot.transform.right = new Vector2(-rotateDir.x, rotateDir.y);
+                    fromLeft = false;
+                    rotateDir = new Vector2(-rotateDir.x, rotateDir.y);
+                    pivot.transform.right = rotateDir;
                 }
-                //pivot.transform.right = rotateDir;
             } else {
                 fromLeft = false;
             }
