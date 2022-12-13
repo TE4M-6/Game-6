@@ -11,6 +11,9 @@ TagManager:
   - Furniture
   - Gun
   - Enemy
+  - PlayerFeet
+  - Obstacle
+  - Cutscene Canvas
   layers:
   - Default
   - TransparentFX
@@ -26,9 +29,9 @@ TagManager:
   - Player
   - Gun
   - Enemy
-  - 
-  - 
-  - 
+  - Projectile
+  - Feet
+  - Obstacle
   - 
   - 
   - 
@@ -71,4 +74,7 @@ TagManager:
     locked: 1
   - name: Player
     uniqueID: 3091085259
+    locked: 0
+  - name: Foreground
+    uniqueID: 1973460187
     locked: 0

@@ -1,11 +1,12 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 /// <summary>
 /// @Daniel K.
 /// Initial commit: 29-Nov-2022
-/// Last modified: 01 Dec 2022 by @Daniel K.
+/// Last modified: 12 Dec 2022 by @Daniel K.
 /// </summary>
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,7 +18,10 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("Value is used to multiple the player's velocity!")]
     [SerializeField] [Range(1, 10)] private float dashPower = 1;
     [SerializeField] [Range(1,10)] private float dashCooldown = 1;
-    
+    [SerializeField] GameObject DashLight;
+    [SerializeField] Slider dashSlider;
+    [SerializeField] AudioClip dash;
+    [SerializeField] AudioClip footstep;
     /* HIDDEN FIELDS */
     private Vector2 _rawInputKeys;
     private Vector2 _rawInputMouse;
@@ -38,12 +42,21 @@ public class PlayerMovement : MonoBehaviour
         _animator = GetComponent<Animator>();
 
         // Calling Methods:
+        dashSlider.value = dashCooldown;
+        _trailRenderer.emitting = false;
     }
 
     private void Update()
     {
         Move();
         FaceCursor();
+        dashSlider.value = Time.time;
+    }
+
+    public void FillDash()
+    {
+        dashSlider.minValue = Time.time;
+        dashSlider.maxValue = Time.time + dashCooldown;
     }
 
     /* FUNCTIONS */
@@ -51,23 +64,15 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 screenPosition = Mouse.current.position.ReadValue();
         Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
-        // Debug.Log("worldPosition.x => " + worldPosition.x);
-        // Debug.Log("worldPosition.y => " + worldPosition.y);
 
         if (worldPosition.x > _rigidbody.position.x)
         {
-            // Debug.Log("worldPosition.x > _rigidbody.position.x");
             transform.localScale = new Vector2(Mathf.Sign(+1), 1f);
         }
         if (worldPosition.x < _rigidbody.position.x)
         {
-            // Debug.Log("worldPosition.x < _rigidbody.position.x");
             transform.localScale = new Vector2(Mathf.Sign(-1), 1f);
         }
-        
-        // Getting position data:
-        // Debug.Log("Playa.X: " + _rigidbody.position.x);
-        // Debug.Log("Mouse.X: " + worldPosition.x);
     }
     private void Move()
     {
@@ -77,18 +82,17 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetBool(IsMoving, false);
         
         if (!_isDashing)
-        {
             _rigidbody.velocity = playerVelocity;
-            _trailRenderer.emitting = false;
-        }
         if (_isDashing)
-        {
             _rigidbody.velocity = dashPower * playerVelocity;
-            _trailRenderer.emitting = true;
-        }
     }
 
     /* EVENT FUNCTIONS */
+    public void OnStep(AnimationEvent animationEvent)
+    {
+        SoundManager.instance.PlaySingle(footstep);
+    }
+    
     private void OnMove(InputValue inputValue)
     {
         _rawInputKeys = inputValue.Get<Vector2>();
@@ -97,7 +101,6 @@ public class PlayerMovement : MonoBehaviour
     
     private void OnDash(InputValue inputValue)
     {
-        // if (!_canDash) return;
         StartCoroutine(DashCoroutine());
     }
     
@@ -106,12 +109,19 @@ public class PlayerMovement : MonoBehaviour
     {
         // Condition:
         if (!_canDash) yield break;
-        
+        if (_rigidbody.velocity.magnitude == 0) yield break;
+
+        SoundManager.instance.PlaySingle(dash);
+        _trailRenderer.emitting = true;
         _canDash = false;
         _isDashing = true;
+        DashLight.SetActive(false);
+        FillDash();
         yield return new WaitForSeconds(dashingTime);
+        _trailRenderer.emitting = false;
         _isDashing = false;
         yield return new WaitForSeconds(dashCooldown);
         _canDash = true;
+        DashLight.SetActive(true);
     }
 }

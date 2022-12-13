@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// AUTHOR: @Nuutti J.
-/// Last modified: 1 Dec 2022 by @Nuutti J.
+/// Last modified: 13 Dec 2022 by @Nuutti J.
 /// </summary>
 
 public class PlayerAiming : MonoBehaviour {
@@ -21,9 +21,6 @@ public class PlayerAiming : MonoBehaviour {
     [Tooltip("The object to hide behind")]
     [SerializeField] SpriteRenderer playerRenderer;
 
-    [Tooltip("The weapon to hide")]
-    [SerializeField] SpriteRenderer weaponRenderer;
-
     [Tooltip("The angle to start hiding")]
     [SerializeField] float hideThresholdStart = 75;
 
@@ -33,6 +30,13 @@ public class PlayerAiming : MonoBehaviour {
     /* HIDDEN FIELDS: */
     Vector3 mouseWorldPos;
     Vector2 rotateDir;
+    SpriteRenderer weaponRenderer;
+    bool fromRight;
+    bool fromLeft;
+
+    void Awake() {
+        weaponRenderer = GetComponentInChildren<Weapon>().GetComponent<SpriteRenderer>();    
+    }
 
     void Update() {
         // The position of the cursor in unity coordinates
@@ -60,17 +64,41 @@ public class PlayerAiming : MonoBehaviour {
 
         // Flip the gun depending on the side the cursor is on
         // If flipped inside the exclusion zone, just invert the latest stored rotateDir x-axis
+
+        // Left side
         if (mouseWorldPos.x < transform.position.x) {
-            if(isInExclusionZone()) {
-                pivot.transform.right = new Vector2(-rotateDir.x, rotateDir.y);
+            if (!fromRight) {
+                fromLeft = true;
             }
-            
+
+            if (isInExclusionZone()) {
+                if (fromRight) {
+                    fromRight = false;
+                    rotateDir = new Vector2(-rotateDir.x, rotateDir.y);
+                    pivot.transform.right = rotateDir;
+                }
+            } else {
+                fromRight = false;
+            }
+
             weaponScale.x = -1;
             weaponScale.y = -1;
             pivot.transform.localScale = weaponScale;
+
+            // Right side
         } else if (mouseWorldPos.x > transform.position.x) {
+            if (!fromLeft) {
+                fromRight = true;
+            }
+
             if (isInExclusionZone()) {
-                pivot.transform.right = rotateDir;
+                if (fromLeft) {
+                    fromLeft = false;
+                    rotateDir = new Vector2(-rotateDir.x, rotateDir.y);
+                    pivot.transform.right = rotateDir;
+                }
+            } else {
+                fromLeft = false;
             }
 
             weaponScale.x = 1;

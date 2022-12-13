@@ -1,37 +1,50 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 /// <summary>
 /// AUTHOR: @Toni
-/// Last modified: 05 Dec. 2022 by @Daniel K.
+/// Last modified: 13 Dec. 2022 by @Daniel K /  @Joona.
 /// </summary>
 /// 
 public class PauseScript : MonoBehaviour
 {
+    /* EXPOSED FIELDS */
     [SerializeField]
     private GameObject pauseCanvas;
     [SerializeField]
     private GameObject optionsCanvas;
+    [SerializeField] private GameObject gameWonCanvas;
+    [SerializeField] private GameObject gameOverCanvas;
+    [SerializeField] private GameObject playerCharacter;
+    [SerializeField] private GameObject playerGun; // @Daniel K. - 13.Dec.2022
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        PauseGame();
+    }
+
+    private void PauseGame() // modified. by @Daniel K / @Joona - 12 Dec 2022.
+    {
+        if (Input.GetKeyUp(KeyCode.Escape) && gameWonCanvas.activeSelf == false && gameOverCanvas.activeSelf == false)
         {
-           if (pauseCanvas.activeInHierarchy)
-            {
+            if (pauseCanvas.activeInHierarchy)
                 continueGame();
-            } 
             else
             {
                 pauseCanvas.SetActive(true);
                 Time.timeScale = 0f;
+                playerCharacter.GetComponent<PlayerShooting>().enabled = false;
             }
         }
     }
 
     public void continueGame()
     {
+        if(playerGun.activeSelf) // @Daniel K. 13.Dec.2023
+            playerCharacter.GetComponent<PlayerShooting>().enabled = true;
+
         optionsCanvas.SetActive(false);
         pauseCanvas.SetActive(false);
         Time.timeScale = 1f;

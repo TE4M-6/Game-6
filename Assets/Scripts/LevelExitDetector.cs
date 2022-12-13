@@ -1,15 +1,18 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// AUTHOR: @Daniel K.
+/// Last modified: 13 Dec. 2022 by @Daniel K.
+/// </summary>
+/// 
 public class LevelExitDetector : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
+            Timer.GetTimer();
             FindObjectOfType<EndOfGameScript>().GameWon();
+            other.gameObject.GetComponent<PlayerShooting>().enabled = false; 
         }
     }
 }
