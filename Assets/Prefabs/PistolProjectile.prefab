@@ -51,6 +51,7 @@ MonoBehaviour:
   projectileDestroyed: {fileID: 5407381691608682140, guid: b4eecfc97cca4db489a864928c7da9d6, type: 3}
   _speed: 10
   _damage: 0.8
+  _range: 0.75
 --- !u!50 &5262941702938651232
 Rigidbody2D:
   serializedVersion: 4
