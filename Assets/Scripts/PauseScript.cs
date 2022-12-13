@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 /// 
 public class PauseScript : MonoBehaviour
 {
+    /* EXPOSED FIELDS */
     [SerializeField]
     private GameObject pauseCanvas;
     [SerializeField]
@@ -17,7 +18,8 @@ public class PauseScript : MonoBehaviour
     [SerializeField] private GameObject gameWonCanvas;
     [SerializeField] private GameObject gameOverCanvas;
     [SerializeField] private GameObject playerCharacter;
-    
+    [SerializeField] private GameObject playerGun; // @Daniel K. - 13.Dec.2022
+
     void Update()
     {
         PauseGame();
@@ -40,7 +42,9 @@ public class PauseScript : MonoBehaviour
 
     public void continueGame()
     {
-        playerCharacter.GetComponent<PlayerShooting>().enabled = true;
+        if(playerGun.activeSelf) // @Daniel K. 13.Dec.2023
+            playerCharacter.GetComponent<PlayerShooting>().enabled = true;
+
         optionsCanvas.SetActive(false);
         pauseCanvas.SetActive(false);
         Time.timeScale = 1f;
