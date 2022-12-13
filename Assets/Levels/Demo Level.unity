@@ -829,7 +829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7094796019406217750, guid: 5c33b8375cb25124b916ac46108e54a9, type: 3}
       propertyPath: forceAmplifier
-      value: 62
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 7094796019406217751, guid: 5c33b8375cb25124b916ac46108e54a9, type: 3}
       propertyPath: m_Name
@@ -10340,7 +10340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7094796019406217750, guid: 5c33b8375cb25124b916ac46108e54a9, type: 3}
       propertyPath: forceAmplifier
-      value: 62
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 7094796019406217751, guid: 5c33b8375cb25124b916ac46108e54a9, type: 3}
       propertyPath: m_Name
