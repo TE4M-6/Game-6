@@ -3,7 +3,7 @@ using UnityEngine;
 
 /// <summary>
 /// AUTHOR: @Daniel K.
-/// Last modified: 12 Dec. 2022 by @Daniel K.
+/// Last modified: 13 Dec. 2022 by @Daniel K.
 /// </summary>
 /// 
 public class Timer : MonoBehaviour
