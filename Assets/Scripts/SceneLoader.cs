@@ -22,8 +22,6 @@ public class SceneLoader : MonoBehaviour
     private Button optionsButton;
     [SerializeField]
     private Button creditsButton;
-    [SerializeField]
-    private Button continueButton;
 
     [SerializeField]
     private AudioClip gameStartSound;
@@ -78,7 +76,6 @@ public class SceneLoader : MonoBehaviour
         newGameButton.interactable = false;
         optionsButton.interactable = false;
         creditsButton.interactable = false;
-        continueButton.interactable = false;
     }
 
     public void CloseOptions()
@@ -87,7 +84,6 @@ public class SceneLoader : MonoBehaviour
         newGameButton.interactable = true;
         optionsButton.interactable = true;
         creditsButton.interactable = true;
-        continueButton.interactable = true;
     }
 
     public void Credits()
@@ -96,7 +92,6 @@ public class SceneLoader : MonoBehaviour
         newGameButton.interactable = false;
         optionsButton.interactable = false;
         creditsButton.interactable = false;
-        continueButton.interactable = false;
     }
 
     public void CloseCredits()
@@ -105,7 +100,6 @@ public class SceneLoader : MonoBehaviour
         newGameButton.interactable = true;
         optionsButton.interactable = true;
         creditsButton.interactable = true;
-        continueButton.interactable = true;
     }
 
 }
