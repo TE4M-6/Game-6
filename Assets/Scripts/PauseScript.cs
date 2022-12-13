@@ -29,6 +29,7 @@ public class PauseScript : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Escape) && gameWonCanvas.activeSelf == false && gameOverCanvas.activeSelf == false)
         {
+            CustomCursor.SetDefaultCursor();
             if (pauseCanvas.activeInHierarchy)
                 continueGame();
             else
@@ -42,7 +43,8 @@ public class PauseScript : MonoBehaviour
 
     public void continueGame()
     {
-        if(playerGun.activeSelf) // @Daniel K. 13.Dec.2023
+        CustomCursor.SetCustomCursor();
+        if (playerGun.activeSelf) // @Daniel K. 13.Dec.2023
             playerCharacter.GetComponent<PlayerShooting>().enabled = true;
 
         optionsCanvas.SetActive(false);
