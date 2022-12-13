@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 /// <summary>
 /// AUTHOR: @Toni
-/// Last modified: 12 Dec. 2022 by @Daniel K /  @Joona.
+/// Last modified: 13 Dec. 2022 by @Daniel K /  @Joona.
 /// </summary>
 /// 
 public class PauseScript : MonoBehaviour
