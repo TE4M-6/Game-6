@@ -15,6 +15,12 @@ public class Projectile : MonoBehaviour {
     /* EXPOSED FIELDS: */
     public float _speed = 10f;
     public float _damage = 1f;
+    public float _range = 2f;
+
+    void Start() {
+        Destroy(gameObject, _range);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision) {
         if(!collision.gameObject.CompareTag("Player")) {
             Instantiate(projectileDestroyed, gameObject.transform.position, Quaternion.identity);
