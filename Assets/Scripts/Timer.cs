@@ -28,7 +28,7 @@ public class Timer : MonoBehaviour
     /* PRIVATE METHODS */
     private void SampleTime()
     {
-        Debug.Log($"Time is: {_timer}");
+        // Debug.Log($"Time is: {_timer}");
         _timer = Time.timeSinceLevelLoad;
     }
 
