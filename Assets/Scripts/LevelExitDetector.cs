@@ -12,6 +12,7 @@ public class LevelExitDetector : MonoBehaviour
         {
             Timer.GetTimer();
             FindObjectOfType<EndOfGameScript>().GameWon();
+            other.gameObject.GetComponent<PlayerShooting>().enabled = false; 
         }
     }
 }
