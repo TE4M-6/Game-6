@@ -1,8 +1,10 @@
+using System.Collections;
 using UnityEngine;
 
 public class CutScene : MonoBehaviour
 {
     private GameObject [] cutScenes;
+    [SerializeField] private GameObject black;
     
     // Update is called once per frame
     void Update()
@@ -13,10 +15,11 @@ public class CutScene : MonoBehaviour
 
     private void PlayCutscenes()
     {
+        StartCoroutine(BlackScreen());
         cutScenes = GameObject.FindGameObjectsWithTag("Cutscene Canvas");
         if (cutScenes.Length == 0)
         {
-            SceneLoader.LoadDemoGame();
+            SceneLoader.LoadDemoGame(); 
         }
     }
 
@@ -24,8 +27,13 @@ public class CutScene : MonoBehaviour
     {
         if (Input.anyKey)
         {
-            Debug.Log("any key pressed");
             SceneLoader.LoadDemoGame();
         }
+    }
+
+    private IEnumerator BlackScreen()
+    {
+        yield return new WaitForSeconds(15f);
+        black.SetActive(true);
     }
 }
