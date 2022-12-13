@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 /// <summary>
 /// AUTHOR: @Daniel K.
-/// Last modified: 05 Dec 2022 by @Joona H.
+/// Last modified: 13 Dec 2022 by @Daniel K.
 /// </summary>
 public class PlayerHealth : MonoBehaviour
 {
@@ -36,5 +36,6 @@ public class PlayerHealth : MonoBehaviour
         FindObjectOfType<EndOfGameScript>().GameOver();
         GetComponent<PlayerMovement>().enabled = false;
         GetComponent<PlayerAiming>().enabled = false;
+        GetComponent<PlayerShooting>().enabled = false; 
     }
 }
