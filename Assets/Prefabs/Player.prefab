@@ -358,8 +358,8 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1203882037
   m_SortingLayer: 8
-  m_SortingOrder: 15
-  m_Time: 0.5
+  m_SortingOrder: -1
+  m_Time: 0.1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -368,7 +368,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.5
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -597,6 +597,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4252933361453772820}
     m_Modifications:
+    - target: {fileID: 496488620825977747, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[1]
+      value: -5754997
+      objectReference: {fileID: 0}
+    - target: {fileID: 496488620825977747, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[2]
+      value: 2139542019
+      objectReference: {fileID: 0}
+    - target: {fileID: 496488620825977747, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[3]
+      value: 1909412519
+      objectReference: {fileID: 0}
+    - target: {fileID: 496488620825977747, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[4]
+      value: -669364139
+      objectReference: {fileID: 0}
+    - target: {fileID: 496488620825977747, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[5]
+      value: 580755349
+      objectReference: {fileID: 0}
+    - target: {fileID: 496488620825977747, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[6]
+      value: -1203882037
+      objectReference: {fileID: 0}
+    - target: {fileID: 496488620825977747, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[7]
+      value: -292753929
+      objectReference: {fileID: 0}
+    - target: {fileID: 496488620825977747, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[8]
+      value: 1756620395
+      objectReference: {fileID: 0}
     - target: {fileID: 5505123055484625442, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
       propertyPath: m_Name
       value: Pistol
@@ -676,7 +708,7 @@ PrefabInstance:
     - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
       propertyPath: weaponLight
       value: 
-      objectReference: {fileID: 4953899884828039803, guid: 3d4609878be6e4d44b45f2de9bec08ef, type: 3}
+      objectReference: {fileID: 496488620307042865}
     - target: {fileID: 7414198558786538167, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
       propertyPath: _spreadAngle
       value: 28
@@ -770,11 +802,26 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7724963583182836293, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724963583182836293, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f3c7a354f8827ba428ccffaa7e5ea68d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+--- !u!114 &496488620307042865 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 496488620825977747, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
+  m_PrefabInstance: {fileID: 792195490}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6232640400987398756 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6232640400401486790, guid: fa4c1bc644f8489459a019dfa7c49a04, type: 3}
