@@ -3433,7 +3433,7 @@ MonoBehaviour:
   newGameButton: {fileID: 873777915}
   optionsButton: {fileID: 1998930658}
   creditsButton: {fileID: 782069809}
-  quitButton: {fileID: 0}
+  quitButton: {fileID: 2129376469}
   gameStartSound: {fileID: 8300000, guid: 234ea383a8c1e1e4e847447fd4cd075e, type: 3}
   spaceShip: {fileID: 1286273855}
   black: {fileID: 1546834548}
