@@ -11,6 +11,7 @@ public class ObstacleHealth : MonoBehaviour
     /* EXPOSED FIELDS */
     [SerializeField] float hitPoint = 100f;
     [SerializeField] private DamageScript flash;
+    [SerializeField] AudioClip explosionSound;
 
     /* HIDDEN FIELDS */
     private Animator _animator = null;
@@ -34,6 +35,7 @@ public class ObstacleHealth : MonoBehaviour
     private IEnumerator Explosion()
     {
         _animator.Play("Explosion");
+        SoundManager.instance.PlaySingle(explosionSound);
         yield return new WaitForSeconds(0.4f);
         Destroy(gameObject);
     }
