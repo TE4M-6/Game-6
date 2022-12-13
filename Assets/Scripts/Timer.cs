@@ -3,7 +3,7 @@ using UnityEngine;
 
 /// <summary>
 /// AUTHOR: @Daniel K.
-/// Last modified: 12 Dec. 2022 by @Daniel K.
+/// Last modified: 13 Dec. 2022 by @Daniel K.
 /// </summary>
 /// 
 public class Timer : MonoBehaviour
@@ -13,8 +13,7 @@ public class Timer : MonoBehaviour
     
     /* HIDDEN FIELDS */
     private static float _timer;
-    private static bool _isTimeMeasured = true;
-    
+
     void Start()
     {
         _timer = Time.timeSinceLevelLoad;
@@ -29,8 +28,7 @@ public class Timer : MonoBehaviour
     /* PRIVATE METHODS */
     private void SampleTime()
     {
-        if (!_isTimeMeasured) return;
-        // timer = Time.time;
+        // Debug.Log($"Time is: {_timer}");
         _timer = Time.timeSinceLevelLoad;
     }
 
@@ -40,11 +38,6 @@ public class Timer : MonoBehaviour
     }
 
     /* PUBLIC METHODS */
-    public static void TurnOffTimer()
-    {
-        _isTimeMeasured = false;
-    }
-
     public static string GetTimer()
     {
         int minutes = Mathf.FloorToInt(_timer / 60F);
